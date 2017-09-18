@@ -1,0 +1,79 @@
+html{
+    height:100%;
+    width:100%;
+    padding:0;
+    margin:0;
+    font-family: Roboto, Geneva, sans-serif !important;
+}
+body{
+    height:100%;
+    width:100%;
+    padding:0;
+    margin:0;
+    display: flex;
+    flex-direction: column;
+    font-family: Roboto, Geneva, sans-serif !important;
+}
+/*------------HEADER------------*/
+.container-fluid#header{
+    height:auto;
+    width:100%;
+    margin:auto;
+    padding:1% 0 0 0;
+    background: #F0F8FF;
+}
+#logo{
+    width:250px;
+    margin: 0 0 1% 2%;
+}
+.menu{
+    width: 100%;
+}
+
+
+
+.container-fluid#content{
+    height:auto;
+    width:100%;
+    padding:0;
+    margin:1% 0 0 0;
+    flex: 1 0 auto;
+}
+.title-pag{
+    width:100%;
+    height:auto;
+    text-align: center;
+    margin-bottom: 2%;
+    font-weight: bold;
+}
+.datatables{
+    width:100%;
+    height: auto;
+    margin:0;
+    padding:0;
+}
+.agendar{
+    margin-top: 2% !important;
+}
+.lable-agendar{
+    text-align: right !important; 
+}
+
+.container-fluid#footer{
+    height:5%;
+    width:100%;
+    padding:.5% 0 0 0;
+    margin:0;
+    flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+    background: #064384;
+    font-size:0.9em;
+    text-align:center;
+    color: white;
+    font-weight: bold;
+}
+.container-fluid#footer p{
+    margin:0 !important;
+}
+textarea{
+    resize: none;
+}
