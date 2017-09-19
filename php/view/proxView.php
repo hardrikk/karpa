@@ -24,32 +24,21 @@ $sql = gerarProxEvento();
                         <td><?php echo $assoc['titulo'] ?></td>
                         <td><?php echo $assoc['contato'] ?></td>
                         <td style="text-align: center;">
-                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".bd-example-modal-lg<?php echo $assoc['id'] ?>">
+                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#proxmodal" data-id="<?php echo $assoc['id'] ?>" id="getEvento">
                                 INFORMAÇÕES
                             </button>
                         </td>
                     </tr>
-                <div class="modal fade bd-example-modal-lg<?php echo $assoc['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h3 class="modal-title"><?php echo $assoc['titulo'] ?></h3>
-                            </div>
-                            <div class="modal-body">
-                                <?php echo $assoc['descricao_evento'] ?>
-                                TVIBGE:<?php echo $assoc['tvibge'] == 1 ? "Sim" : 'Não'; ?>
-                                Webcast: <?php echo $assoc['webcast'] == 1 ? $assoc['web_externa'] : 'Não'; ?>
-                                Local:<?php echo $assoc['local']; ?>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <?php } ?>
             </tbody>
 
         </table>
+    </div>
+</div>
+<div id="proxmodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+        </div>
     </div>
 </div>

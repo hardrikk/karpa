@@ -43,8 +43,8 @@ class form {
         foreach ($sql as $assoc) {
             $id = $assoc['id'];
             $local = $assoc['local'];
-            $opcao = $cont != 8 ? 1 : 2;
-            $listaLocal = $listaLocal . "<option value=\"$id\" class=\"$opcao\">$local</option>";
+            $opcao = $assoc['uf'];
+            $listaLocal = $listaLocal . "<option value=\"$id\" class=\"$opcao 1\">$local</option>";
             $cont++;
         }
         $listaLocal .= "</select>";

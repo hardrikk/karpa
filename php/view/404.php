@@ -1,9 +1,3 @@
 <center>
-    <h2>PÁGINA NÃO ENCONTRADA</h2>
-    
-    
-    
-    
-    
-    
+    <h2>PÁGINA NÃO ENCONTRADA</h2>  
 </center>

@@ -86,16 +86,13 @@ $(document).ready(function () {
         var select = $("#uorg").val();
         if (select != '') {
             $('#local').removeAttr("disabled");
+            $(".NU").prop("hidden", "hidden");
+            $(".1").prop("hidden", "hidden");
             var uf = $("#uorg").find(':selected').prop('class');
-            if (uf == 'RJ') {
-                $(".0").prop("selected", "selected");
-                $(".1").removeAttr("hidden");
-                $(".2").prop("hidden", "hidden");
-            } else {
-                $(".0").prop("selected", "selected");
-                $(".2").removeAttr("hidden");
-                $(".1").prop("hidden", "hidden");
-            }
+            uf = '.' + uf;
+            $(".0").prop("selected", "selected");
+            $(uf).removeAttr("hidden");
+            $(".NU").removeAttr("hidden");
         } else {
             $(".0").prop("selected", "selected");
             $("#local").prop("disabled", "disabled");
@@ -129,3 +126,34 @@ $(window).scroll(function () {
     $('#footer').css('top', h); // PARA FIXAR O FOOTER NA PARTE INFERIOR DA PAGINA
 });
 principal.start();
+
+$(document).ready(function(){
+
+    $(document).on('click', '#getEvento', function(e){
+  
+     e.preventDefault();
+  
+     var uid = $(this).data('id'); // get id of clicked row
+
+     $('.modal-content').html(''); // leave this div blank
+     //$('#modal-loader').show();      // load ajax loader on button click
+ 
+     $.ajax({
+          url: 'php/view/proxModalView.php',
+          type: 'POST',
+          data: 'id='+uid,
+          dataType: 'html'
+     })
+     .done(function(data){
+          console.log(data); 
+          $('.modal-content').html(''); // blank before load.
+          $('.modal-content').html(data); // load here
+       //   $('#modal-loader').hide(); // hide loader  
+     })
+     .fail(function(){
+          $('.modal-content').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
+       //   $('#modal-loader').hide();
+     });
+
+    });
+});

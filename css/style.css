@@ -57,6 +57,7 @@ body{
 }
 .lable-agendar{
     text-align: right !important; 
+    font-weight: bold;
 }
 
 .container-fluid#footer{
@@ -76,4 +77,7 @@ body{
 }
 textarea{
     resize: none;
+}
+.desc-modal{
+    text-align: center;
 }

@@ -1,10 +1,15 @@
 <?php
 function selectProxView(){
-    return "SELECT e.*,  l.local "
+    return "SELECT e.* "
+            . "FROM tvibge_eventos e "
+            . "WHERE aprovado=1 and status=0 and ativo=1 and (dt_final >= CURRENT_DATE) "
+            . "ORDER BY dt_inicio, hora_inicio";
+}
+function selectProxModalView(){
+    return "SELECT e.*, l.local "
             . "FROM tvibge_eventos e "
             . "JOIN tvibge_locais l ON e.fklocal = l.id "
-            . "WHERE aprovado=1 and status=0 and ativo=1 and (dt_final > CURRENT_DATE) "
-            . "ORDER BY dt_inicio, hora_inicio";
+            . "WHERE e.aprovado=1 and e.status=0 and e.ativo=1 and (e.dt_final >= CURRENT_DATE) and e.id = :id ;";
 }
 
 function selectAnteView(){
