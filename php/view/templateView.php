@@ -57,7 +57,7 @@ $view = pg($pg);
                         </li>
                       </ul>
                       <ul style="float: right;" class="nav navbar-nav">
-                        <li><a href="?p=lv">LOGIN</a></li>
+                          <li><a href="?p=lv">LOGIN <span class="glyphicon glyphicon-log-in"></span></a></li>
                       </ul>
                     </div>
                 </nav>

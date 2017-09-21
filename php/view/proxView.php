@@ -1,7 +1,7 @@
 <?php
 include 'php/controller/proxController.php';
 
-$sql = gerarProxEvento();
+$listaProxEvento = gerarProxEvento();
 ?>
 <div class="title-pag container-fluid">
     <h2>EVENTOS PRÓXIMOS</h2>
@@ -18,18 +18,7 @@ $sql = gerarProxEvento();
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($sql as $assoc) { ?>
-                    <tr>
-                        <th><?php echo $assoc['dt_inicio'] . ' ' . $assoc['hora_inicio'] ?></th>
-                        <td><?php echo $assoc['titulo'] ?></td>
-                        <td><?php echo $assoc['contato'] ?></td>
-                        <td style="text-align: center;">
-                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#proxmodal" data-id="<?php echo $assoc['id'] ?>" id="getEvento">
-                                INFORMAÇÕES
-                            </button>
-                        </td>
-                    </tr>
-                <?php } ?>
+                <?php echo $listaProxEvento; ?>
             </tbody>
 
         </table>

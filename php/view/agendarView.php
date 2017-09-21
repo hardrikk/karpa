@@ -1,9 +1,6 @@
 <?php 
-    include "php/controller/formController.php";
     include "php/class/form.php";
     $form = new form();
-//    $uorg = gerarUorg();
-//    $locais = gerarLocal();
 ?>
 <div class="container">
     <form id="agendarForm" action="?p=am" method="POST" onsubmit="return validar();" data-toggle="validator">
@@ -32,7 +29,7 @@
                 <label class="col-sm-2 col-form-label lable-agendar">* Data de Início:</label>
                 <div class="col-sm-3">
                     <div id="sandbox-container" class="input-group">
-                        <input name="dtinicio" id="dtinicio" type="text" class="form-control" placeholder="dd/mm/aaaa"  required>
+                        <?php echo $form->dtinicio; ?>
                         <div class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </div>
@@ -42,7 +39,7 @@
                 <label class="col-sm-2 col-form-label lable-agendar">* Data de Término:</label>
                 <div class="col-sm-3">
                     <div id="sandbox-container" class="input-group">
-                        <input name="dtfinal" id="dtfinal" type="text" class="form-control" placeholder="dd/mm/aaaa"  required>
+                        <?php echo $form->dtfinal; ?>
                         <div class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </div>
@@ -53,19 +50,19 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label lable-agendar">* Hora de Início:</label>
                 <div class="col-sm-3">
-                    <input name="hrinicio" id="hrinicio" data-format="hh:mm" type="text" class="form-control modalhr" placeholder="hh:mm"  required>
+                    <?php echo $form->hrinicio; ?>
                     <div class="help-block with-errors hrierros"></div>
                 </div>
                 <label class="col-sm-2 col-form-label lable-agendar">* Hora de Término:</label>
                 <div class="col-sm-3">
-                    <input name="hrfinal" id="hrfinal" data-format="hh:mm" type="text" class="form-control modalhr" placeholder="hh:mm" title="Duração mínima de 2 horas" required>
+                    <?php echo $form->hrfinal; ?>
                     <div class="help-block with-errors hrferros"></div>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label lable-agendar">* Descrição do Evento:</label>
                 <div class="col-sm-8">
-                    <textarea name="desc_evento" id="desc_evento" class="form-control col-sm-12" placeholder="Descrição do evento" maxlength="800" required></textarea>
+                    <?php echo $form->desc_evento; ?>
                     <div class="help-block with-errors"></div>
                 </div>
             </div>
@@ -75,31 +72,31 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label lable-agendar">* Nome:</label>
                 <div class="col-sm-8">
-                    <input type="text" name="responsavel" id="responsavel" class="form-control" placeholder="Nome do responsável" pattern="^[_A-z]{1,}$" required>
+                    <?php echo $form->responsavel; ?>
                     <div class="help-block with-errors"></div>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label lable-agendar">* E-mail:</label>
                 <div class="col-sm-8">
-                    <input type="email" name="email" id="email" class="form-control" placeholder="E-mail do responsável" required>
+                    <?php echo $form->email; ?>
                     <div class="help-block with-errors"></div>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label lable-agendar">Telefone:</label>
                 <div class="col-sm-2">
-                    <input type="text" name="telefone" id="telefone" class="form-control" pattern="^[ 0-9()-]{1,}$" placeholder="Telefone de contato">
+                    <?php echo $form->telefone; ?>
                     <div class="help-block with-errors"></div>
                 </div>
                 <label class="col-sm-1 col-form-label lable-agendar">Ramal:</label>
                 <div class="col-sm-2">
-                    <input type="text" name="ramal" id="ramal" class="form-control" pattern="^[0-9]{1,}$" maxlength="4" placeholder="Ramal de contato">
+                    <?php echo $form->ramal; ?>
                     <div class="help-block with-errors"></div>
                 </div>
                 <label class="col-sm-1 col-form-label lable-agendar">Celular:</label>
                 <div class="col-sm-2">
-                    <input type="text" name="celular" id="celular" class="form-control" pattern="^[ 0-9()-]{1,}$" placeholder="Celular de contato">
+                    <?php echo $form->celular; ?>
                     <div class="help-block with-errors"></div>
                 </div>
             </div>
@@ -110,25 +107,25 @@
                 <label class="col-sm-2 col-form-label lable-agendar">Ferramentas:</label>
                 <div class="col-sm-2">
                     <label class="custom-control custom-checkbox">
-                        <input type="checkbox" name="chat" id="chat" class="custom-control-input">
+                        <?php echo $form->chat; ?>
                         <span class="custom-control-description">Chat</span>
                     </label>
                 </div>
                 <div class="col-sm-2">
                     <label class="custom-control custom-checkbox">
-                        <input type="checkbox" name="slide" id="slide" class="custom-control-input">
+                        <?php echo $form->slide; ?>
                         <span class="custom-control-description">Slide</span>
                     </label>
                 </div>
                 <div class="col-sm-2">
                     <label class="custom-control custom-checkbox">
-                        <input type="checkbox" name="enquete" id="enquete" class="custom-control-input">
+                        <?php echo $form->enquete; ?>
                         <span class="custom-control-description">Enquete</span>
                     </label>
                 </div>
                 <div class="col-sm-2">
                     <label class="custom-control custom-checkbox">
-                        <input type="checkbox" name="perguntas" id="perguntas" class="custom-control-input">
+                        <?php echo $form->pergunta; ?>
                         <span class="custom-control-description">Perguntas</span>
                     </label>
                 </div>
@@ -136,32 +133,32 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label lable-agendar">Observação:</label>
                 <div class="col-sm-8">
-                    <textarea name="observacao" id="observacao" class="form-control col-sm-12" placeholder="Observação sobre as ferramentas"></textarea>
+                    <?php echo $form->observacao; ?>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label lable-agendar">* Público Alvo:</label>
                 <div class="col-sm-2">
                     <label class="custom-control custom-checkbox">
-                        <input name="sede" id="sede" type="checkbox" class="custom-control-input">
+                        <?php echo $form->sede; ?>
                         <span class="custom-control-description">Unidades-SEDE</span>
                     </label>
                 </div>
                 <div class="col-sm-2">
                     <label class="custom-control custom-checkbox">
-                        <input name="ue" id="ue" type="checkbox" class="custom-control-input">
+                        <?php echo $form->ues; ?>
                         <span class="custom-control-description">UEs</span>
                     </label>
                 </div>
                 <div class="col-sm-2">
                     <label class="custom-control custom-checkbox">
-                        <input name="agencia" id="agencia" type="checkbox" class="custom-control-input">
+                        <?php echo $form->agencia; ?>
                         <span class="custom-control-description">Agências</span>
                     </label>
                 </div>
                 <div class="col-sm-2">
                     <label class="custom-control custom-checkbox">
-                        <input name="externo" id="externo" type="checkbox" class="custom-control-input">
+                        <?php echo $form->externo; ?>
                         <span class="custom-control-description">Usuários Externos</span>
                     </label>
                 </div>
@@ -170,13 +167,13 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label lable-agendar">Descrição do público:</label>
                 <div class="col-sm-8">
-                    <textarea name="desc_publico" id="desc_publico" class="form-control col-sm-12" placeholder="Descrição do público"></textarea>
+                    <?php echo $form->desc_publico; ?>
                 </div>
             </div>
         </fieldset>
         <div class="form-group row">
             <div class="col-sm-12">
-                <input class="btn btn-primary center-block" type="submit" value="Enviar">
+                <?php form::btnEnviar(); ?>
             </div>
         </div>
     </form>

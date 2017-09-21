@@ -7,8 +7,8 @@ if (isset($_REQUEST['id'])) {
     $id = intval($_REQUEST['id']);
     $query = selectProxModalView();
     $stmt = $pdo->prepare($query);
-    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-    $stmt->execute() or die();
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     extract($row);
 }

@@ -34,3 +34,14 @@ function selectUorg(){
 function selectLocais(){
     return "SELECT * FROM tvibge_locais";
 }
+
+function selectPin(){
+    return "SELECT pin FROM tvibge_eventos WHERE pin=:pin";
+}
+
+function insertEvento(){
+    return "INSERT INTO tvibge_eventos (titulo, descricao_evento, dt_inicio, dt_final, hora_inicio, hora_final, fkuorg, fklocal, contato, contato_ramal, contato_fone, contato_email, contato_cel, 
+            slides, chat, pergunta, enquete, observacao, sede, ue, agencia, externo, descricao_publico, aprovado, status, ativo, tvibge, webcast, pin)
+            VALUES (:titulo, :desc_evento, :dtinicio, :dtfinal, :hrinicio, :hrfinal, :uorg, :local, :nome, :ramal, :telf, :email, :cell, :slide, :chat, :pergunta, :enquete,
+            :observacao, :unisede, :ues, :agencia, :externos, :desc_publico, :aprovado, :status, :ativo, :tvibge, :webcast, :pin)";
+}

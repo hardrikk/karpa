@@ -45,18 +45,18 @@ class evento {
         $this->setTelefone($obpost->telefone);
         $this->setRamal($obpost->ramal);
         $this->setCelular($obpost->celular);
-        $this->setChat($obpost->chat);
-        $this->setSlide($obpost->slide);
-        $this->setEnquete($obpost->enquete);
-        $this->setPerguntas($obpost->perguntas);
+        $this->setChat(isset($obpost->chat)?$obpost->chat : '');
+        $this->setSlide(isset($obpost->slide)?$obpost->slide : '');
+        $this->setEnquete(isset($obpost->enquete)?$obpost->enquete : '');
+        $this->setPerguntas(isset($obpost->perguntas)?$obpost->perguntas : '');
         $this->setObservacao($obpost->observacao);
-        $this->setSede($obpost->sede);
-        $this->setUe($obpost->ue);
-        $this->setAgencia($obpost->agencia);
-        $this->setExterno($obpost->externo);
+        $this->setSede(isset($obpost->sede)?$obpost->sede : '');
+        $this->setUe(isset($obpost->ue)?$obpost->ue : '');
+        $this->setAgencia(isset($obpost->agencia)?$obpost->agencia : '');
+        $this->setExterno(isset ($obpost->externo)?$obpost->externo : '');
         $this->setDesc_publi($obpost->desc_publico);
-        $this->setTvibge($obpost->tvibge);
-        $this->setWebcast($obpost->webcast);
+        $this->setTvibge(isset ($obpost->tvibge)?$obpost->tvibge : '');
+        $this->setWebcast(isset ($obpost->webcast)?$obpost->webcast : '');
         $this->setWebexterno($obpost->webexterno);
 
     }
@@ -194,11 +194,11 @@ class evento {
     }
 
     function setDtinicio($dtinicio) {
-        $this->dtinicio = validarCampo($dtinicio);
+        $this->dtinicio = convertData2(validarCampo($dtinicio));
     }
 
     function setDtfinal($dtfinal) {
-        $this->dtfinal = validarCampo($dtfinal);
+        $this->dtfinal = convertData2(validarCampo($dtfinal));
     }
 
     function setHrinicio($hrinicio) {
