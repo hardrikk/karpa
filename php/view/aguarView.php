@@ -2,16 +2,14 @@
 include 'php/controller/aguarController.php';
 
 $listaAguarEvento = gerarAguarEvento();
+
+$mensagem = isset($_GET['m']) ? $_GET['m'] : '';
+$mensagem = gerarAguarMensagem($mensagem, $_SERVER);
 ?>
 <div class="title-pag container-fluid">
     <h2>EVENTOS AGUARDANDO APROVAÇÃO</h2>
 </div>
-<div class="container">
-    <div class="alert alert-success" role="alert">
-        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
-        <strong>Warning!</strong> Better check yourself, you're not looking too good.
-    </div>
-</div>
+<?php echo $mensagem; ?>
 <div class="datatables">
     <div class="table-responsive">
         <table id="tablepag" class="table table-striped table-bordered">
@@ -24,9 +22,16 @@ $listaAguarEvento = gerarAguarEvento();
                 </tr>
             </thead>
             <tbody>
-                <?php echo $listaAguarEvento;?>
+                <?php echo $listaAguarEvento; ?>
             </tbody>
         </table>
+    </div>
+</div>
+<div id="pinmodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+        </div>
     </div>
 </div>
 

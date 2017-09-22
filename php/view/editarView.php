@@ -1,8 +1,18 @@
-<?php 
-    include "php/class/form.php";
-    $form = new form();
-    $form->formAgendar();
+<?php
+include "php/class/form.php";
 
+$ref = isset($_SERVER["HTTP_REFERER"]) ? explode("?", $_SERVER["HTTP_REFERER"]) : '';
+$ref = isset($ref[1]) ? $ref[1] : '';
+$ref = explode("&", $ref);
+$ref = $ref[0];
+if ($ref == 'p=agv') {
+    extract($_GET);
+    $form = new form();
+    $form->formEditar($id);
+} else {
+    header("Location: ./?p=404");
+    exit;
+}
 ?>
 <div class="container">
     <form id="agendarForm" action="?p=am" method="POST" onsubmit="return validar();" data-toggle="validator">
@@ -36,7 +46,7 @@
                             <span class="glyphicon glyphicon-calendar"></span>
                         </div>
                     </div>
-                        <div class="help-block with-errors"></div>
+                    <div class="help-block with-errors"></div>
                 </div>
                 <label class="col-sm-2 col-form-label lable-agendar">* Data de Término:</label>
                 <div class="col-sm-3">
@@ -46,7 +56,7 @@
                             <span class="glyphicon glyphicon-calendar"></span>
                         </div>
                     </div>
-                        <div class="help-block with-errors"></div>
+                    <div class="help-block with-errors"></div>
                 </div>
             </div>
             <div class="form-group row">

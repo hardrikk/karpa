@@ -11,12 +11,12 @@ function gerarProxEvento() {
     foreach ($sql as $assoc) {
         extract($assoc);
         $dt_inicio = convertData($dt_inicio);
-        $hora_inicio = convertHora($hora_inicio);
+        $hr_inicio = convertHora($hr_inicio);
         $listaProxEvento .= "
             <tr>
-                <th>$dt_inicio $hora_inicio</th>
+                <th>$dt_inicio $hr_inicio</th>
                 <td>$titulo</td>
-                <td>$contato</td>
+                <td>$responsavel</td>
                 <td style=\"text-align: center;\">
                     <button type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#proxmodal\" data-id=\"$id\" id=\"getEvento\">
                         <span class=\"glyphicon glyphicon-search\" aria-hidden=\"true\"></span> INFORMAÇÕES

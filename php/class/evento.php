@@ -31,7 +31,7 @@ class evento {
     private $webexterno;
     private $pin;
  
-    function __construct($obpost) {
+    function validadarEvento($obpost) {
         $this->setTitulo($obpost->titulo);
         $this->setUorg($obpost->uorg);
         $this->setLocal($obpost->local);

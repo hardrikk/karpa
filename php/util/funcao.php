@@ -35,4 +35,9 @@ function uniqueAlfa($length = 6) {
     }
     return $pass;
 }
+
+//$ref = isset($server["HTTP_REFERER"]) ? explode("?", $server["HTTP_REFERER"]) : '';
+//$ref = isset($ref[1]) ? $ref[1] : '';
+//$ref = explode("&", $ref);
+//$ref = $ref[0];
 ?>

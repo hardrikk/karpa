@@ -7,7 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
     $pdo = conectar();
 
     $obpost = (object) $_POST;
-    $evento = new evento($obpost);
+    $evento = new evento();
+    $evento->validadarEvento($obpost);
 
     do {
         $pin = uniqueAlfa();
@@ -31,9 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
     $stmt->bindParam(":uorg", $evento->getUorg(), PDO::PARAM_INT);
     $stmt->bindParam(":local", $evento->getLocal(), PDO::PARAM_INT);
     $stmt->bindParam(":nome", $evento->getResponsavel(), PDO::PARAM_STR);
-    $stmt->bindParam(":ramal", $evento->getRamal(), PDO::PARAM_STR);
-    $stmt->bindParam(":telf", $evento->getTelefone(), PDO::PARAM_STR);
     $stmt->bindParam(":email", $evento->getEmail(), PDO::PARAM_STR);
+    $stmt->bindParam(":telf", $evento->getTelefone(), PDO::PARAM_STR);
+    $stmt->bindParam(":ramal", $evento->getRamal(), PDO::PARAM_STR);
     $stmt->bindParam(":cell", $evento->getCelular(), PDO::PARAM_STR);
     $stmt->bindParam(":slide", $evento->getSlide(), PDO::PARAM_INT);
     $stmt->bindParam(":chat", $evento->getChat(), PDO::PARAM_INT);
@@ -45,16 +46,11 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
     $stmt->bindParam(":agencia", $evento->getAgencia(), PDO::PARAM_INT);
     $stmt->bindParam(":externos", $evento->getExterno(), PDO::PARAM_INT);
     $stmt->bindParam(":desc_publico", $evento->getDesc_publi(), PDO::PARAM_STR);
-    $stmt->bindParam(":aprovado", $zero, PDO::PARAM_INT);
-    $stmt->bindParam(":status", $zero, PDO::PARAM_INT);
-    $stmt->bindParam(":ativo", $um, PDO::PARAM_INT);
-    $stmt->bindParam(":tvibge", $zero, PDO::PARAM_INT);
-    $stmt->bindParam(":webcast", $zero, PDO::PARAM_INT);
     $stmt->bindParam(":pin", $pin, PDO::PARAM_STR);
     
     $result = $stmt->execute();
     if(!$result){
-        var_dump( $stmt->errorInfo() );
+        echo $stmt->errorInfo();
         exit;
     }else{
         $pdo = null;

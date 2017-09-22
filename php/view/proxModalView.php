@@ -18,7 +18,7 @@ if (isset($_REQUEST['id'])) {
 </div>
 <div class="modal-body">
     <div class="container-fluid desc-modal">
-        <?php echo $descricao_evento; ?>
+        <?php echo $desc_evento; ?>
     </div>
     <hr>
     <div class="container-fluid">

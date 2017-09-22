@@ -13,7 +13,7 @@ class form {
     public $hrfinal =  "<input name=\"hrfinal\" id=\"hrfinal\" data-format=\"hh:mm\" type=\"text\" class=\"form-control modalhr\" placeholder=\"hh:mm\" title=\"Duração mínima de 2 horas\" required ";
     public $desc_evento = "<textarea name=\"desc_evento\" id=\"desc_evento\" class=\"form-control col-sm-12\" placeholder=\"Descrição do evento\" maxlength=\"800\" required>";
     
-    public $responsavel = "<input type=\"text\" name=\"responsavel\" id=\"responsavel\" class=\"form-control\" placeholder=\"Nome do responsável\" pattern=\"^[_A-z]{1,}$\" required ";
+    public $responsavel = "<input type=\"text\" name=\"responsavel\" id=\"responsavel\" class=\"form-control\" placeholder=\"Nome do responsável\" pattern=\"^[ _A-z]{1,}$\" required ";
     public $email = "<input type=\"email\" name=\"email\" id=\"email\" class=\"form-control\" placeholder=\"E-mail do responsável\" required ";
     public $telefone = "<input type=\"text\" name=\"telefone\" id=\"telefone\" class=\"form-control\" pattern=\"^[ 0-9()-]{1,}$\" placeholder=\"Telefone de contato\" ";
     public $ramal = "<input type=\"text\" name=\"ramal\" id=\"ramal\" class=\"form-control\" pattern=\"^[0-9]{1,}$\" maxlength=\"4\" placeholder=\"Ramal de contato\" ";
@@ -31,10 +31,37 @@ class form {
     public $externo = "<input name=\"externo\" id=\"externo\" type=\"checkbox\" class=\"custom-control-input\" ";
     public $desc_publico = "<textarea name=\"desc_publico\" id=\"desc_publico\" class=\"form-control col-sm-12\" placeholder=\"Descrição do público\">";
     
-    public function __construct() {
+    public function formAgendar() {
         $this->titulo .= "/>";
         $this->uorg .= form::gerarUorg();
         $this->locais .= form::gerarLocal();
+        $this->dtinicio .= "/>";
+        $this->dtfinal .= "/>";
+        $this->hrinicio .= "/>";
+        $this->hrfinal .= "/>";
+        $this->desc_evento .= "</textarea>";
+        $this->responsavel .= "/>";
+        $this->email .= "/>";
+        $this->telefone .= "/>";
+        $this->ramal .= "/>";
+        $this->celular .= "/>";
+        $this->chat .= "/>";
+        $this->slide .= "/>";
+        $this->enquete .= "/>";
+        $this->pergunta .= "/>";
+        $this->observacao .= "</textarea>";
+        $this->sede .= "/>";
+        $this->ues .= "/>";
+        $this->agencia .= "/>";
+        $this->externo .= "/>";
+        $this->desc_publico .= "</textarea>";
+    }
+    public function formEditar($id) {
+        
+        
+        $this->titulo .= "/>";
+        $this->uorg .= form::gerarUorg($id);
+        $this->locais .= form::gerarLocal($id);
         $this->dtinicio .= "/>";
         $this->dtfinal .= "/>";
         $this->hrinicio .= "/>";
