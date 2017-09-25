@@ -1,6 +1,4 @@
 <?php
-include "php/class/form.php";
-
 $ref = isset($_SERVER["HTTP_REFERER"]) ? explode("?", $_SERVER["HTTP_REFERER"]) : '';
 $ref = isset($ref[1]) ? $ref[1] : '';
 $ref = explode("&", $ref);
@@ -15,7 +13,7 @@ if ($ref == 'p=agv') {
 }
 ?>
 <div class="container">
-    <form id="agendarForm" action="?p=am" method="POST" onsubmit="return validar();" data-toggle="validator">
+    <form id="agendarForm" action="?p=em&id=<?php echo $id ?>" method="POST" onsubmit="return validar();" data-toggle="validator">
         <fieldset class="form-group">
             <legend>EVENTO</legend>
             <div class="form-group row">
@@ -33,7 +31,7 @@ if ($ref == 'p=agv') {
                 </div>
                 <label for="local" class="col-sm-2 col-form-label lable-agendar">* Local:</label>
                 <div class="col-sm-3">
-                    <?php echo $form->locais; ?>
+                    <?php echo $form->locais2; ?>
                     <div class="help-block with-errors"></div>
                 </div>
             </div>
@@ -184,8 +182,13 @@ if ($ref == 'p=agv') {
             </div>
         </fieldset>
         <div class="form-group row">
-            <div class="col-sm-12">
-                <?php form::btnEnviar(); ?>
+            <div class="col-sm-12" align="center">
+                    <?php
+                    form::btnVoltarAguar();
+                    ?>
+                    <?php
+                    form::btnSalvar();
+                    ?>
             </div>
         </div>
     </form>

@@ -22,6 +22,9 @@ function endereco($pg){
         case 'ev':
             return 'view/editarView';
             break;
+        case 'em':
+            return 'model/editarModel';
+            break;
         case 'pmm':
             return 'model/pinModalModel';
             break;

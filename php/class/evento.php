@@ -61,6 +61,23 @@ class evento {
 
     }
     
+    static function gerarEventoID($id){
+        $pdo = conectar();
+        $query = selectEventoID();
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $pdo = null;
+        $stmt = null;
+        return $row;
+    }
+    
+    
+    
+    
+    
+    
     function getTitulo() {
         return $this->titulo;
     }

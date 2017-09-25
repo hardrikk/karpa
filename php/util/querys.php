@@ -28,7 +28,7 @@ function selectAguarView(){
             . "ORDER BY dt_inicio, hr_inicio";
 }
 function selectUorg(){
-    return "SELECT * FROM sitvi_uorg";
+    return "SELECT * FROM sitvi_uorg ORDER BY nome";
 }
 
 function selectLocais(){
@@ -48,4 +48,15 @@ function insertEvento(){
 
 function selectPinEvento(){
     return "SELECT id, pin FROM sitvi_evento WHERE id=:id and pin=:pin";
+}
+
+function selectEventoID(){
+    return "SELECT * FROM sitvi_evento WHERE id=:id";
+}
+
+function updateEvento(){
+    return "UPDATE sitvi_evento SET titulo = ?, desc_evento = ?, dt_inicio = ?, dt_final = ?, hr_inicio = ?, hr_final = ?, "
+            . "fkuorg = ?, fklocal = ?, responsavel = ?, email = ?, telefone = ?, ramal = ?, celular = ?, slide = ?, chat = ?, "
+            . "pergunta = ?, enquete = ?, observacao = ?, sede = ?, ue = ?, agencia = ?, externo = ?, desc_publico = ? "
+            . "WHERE id = ?";
 }
