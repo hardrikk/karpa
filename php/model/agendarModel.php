@@ -54,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
         exit;
     }else{
         $pdo = null;
+        $stmt = null;
         header("Location: ./?p=agv&m=s");
         exit;
     }

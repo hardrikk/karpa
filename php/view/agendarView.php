@@ -1,7 +1,6 @@
 <?php 
     $form = new form();
     $form->formAgendar();
-
 ?>
 <div class="container">
     <form id="agendarForm" action="?p=am" method="POST" onsubmit="return validar();" data-toggle="validator">

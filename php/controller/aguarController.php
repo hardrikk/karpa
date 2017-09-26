@@ -45,10 +45,10 @@ function gerarAguarMensagem($mensagem, $server) {
     $ref = $ref[0];
 
     $men = "";
-    if ($ref == 'p=av' || $ref == 'p=agv') {
+    if ($ref == 'p=av' || $ref == 'p=agv' || $ref == 'p=ev') {
         if (trim($mensagem)) {
-            $men = "<div class=\"container\">
-                        <div class=\"alert text-center ";
+            $men = "<div class=\"container\" align=\"center\">
+                        <div style=\"display:inline-block;\" class=\"alert ";
             switch ($mensagem) {
                 case 's':
                     $men .= "alert-success\" role=\"alert\">
@@ -59,6 +59,17 @@ function gerarAguarMensagem($mensagem, $server) {
                     $men .="alert-danger\" role=\"alert\">
                                 <button type=\"button\" class=\"close\" data-dismiss=\"alert\"><span aria-hidden=\"true\">&times;</span></button>
                                 <strong>PIN INVÁLIDO!</strong> Por favor, verifique o PIN digitado.";
+                    break;
+                case 'e':
+                    $men .="alert-success\" role=\"alert\">
+                                <button type=\"button\" class=\"close\" data-dismiss=\"alert\"><span aria-hidden=\"true\">&times;</span></button>
+                                <strong>Sucesso!</strong> Evento alteração feita com sucesso. ";
+                    break;
+                case 'ex':
+                    $men .="alert-success\" role=\"alert\">
+                                <button type=\"button\" class=\"close\" data-dismiss=\"alert\"><span aria-hidden=\"true\">&times;</span></button>
+                                <strong>Sucesso!</strong> Evento excluído com sucesso. ";
+                    break;
             }
             $men .= "</div>
                 </div>";

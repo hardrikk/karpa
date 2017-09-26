@@ -13,12 +13,10 @@ function selectProxModalView(){
 }
 
 function selectAnteView(){
-    return "SELECT DISTINCT e.id, e.dt_inicio, e.hora_inicio, e.titulo, e.contato 
-            FROM tvibge_eventos e 
-            JOIN tvibge_sessao se ON e.id = se.fkevento
-            JOIN tvibge_video s ON se.id = s.fksessao 
-            WHERE e.aprovado=1 and e.status=0 and e.ativo=1 and (e.dt_final < CURRENT_DATE) 
-            ORDER BY dt_inicio, hora_inicio DESC";
+    return "SELECT *
+            FROM sitvi_evento 
+            WHERE aprovado=1 and status=0 and ativo=1 and (dt_final < CURRENT_DATE) 
+            ORDER BY dt_inicio DESC, hr_inicio DESC";
 }
 
 function selectAguarView(){
@@ -59,4 +57,13 @@ function updateEvento(){
             . "fkuorg = ?, fklocal = ?, responsavel = ?, email = ?, telefone = ?, ramal = ?, celular = ?, slide = ?, chat = ?, "
             . "pergunta = ?, enquete = ?, observacao = ?, sede = ?, ue = ?, agencia = ?, externo = ?, desc_publico = ? "
             . "WHERE id = ?";
+}
+
+function updateExEvento(){
+    return "UPDATE sitvi_evento SET status = ?, ativo = ? "
+            . "WHERE id = ?";
+}
+
+function selectLogin(){
+    return "SELECT * FROM sitvi_admin WHERE usuario = ? and senha = ?";
 }

@@ -29,6 +29,9 @@ class form {
     public $agencia = "<input name=\"agencia\" id=\"agencia\" type=\"checkbox\" class=\"custom-control-input\" ";
     public $externo = "<input name=\"externo\" id=\"externo\" type=\"checkbox\" class=\"custom-control-input\" ";
     public $desc_publico = "<textarea name=\"desc_publico\" id=\"desc_publico\" class=\"form-control col-sm-12\" placeholder=\"Descrição do público\">";
+    
+    public $usuario = "<input type=\"text\" class=\"form-control\" id=\"usuario\" name=\"usuario\" placeholder=\"Usuário\" maxlength=\"15\" required ";
+    public $senha = "<input type=\"password\" class=\"form-control\" id=\"senha\" name=\"senha\" placeholder=\"Senha\" maxlength=\"100\" required ";
 
     public function formAgendar() {
         $this->titulo .= "/>";
@@ -57,7 +60,6 @@ class form {
     }
 
     public function formEditar($id) {
-
         $evento = evento::gerarEventoID($id);
         extract($evento);
 
@@ -89,6 +91,10 @@ class form {
         $this->desc_publico .= "$desc_publico</textarea>";
     }
 
+    public function formLogin(){
+        $this->usuario .= "/>";
+        $this->senha .= "/>";
+    }
     static function gerarUorg() {
         $pdo = conectar();
 

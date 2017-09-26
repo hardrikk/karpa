@@ -33,6 +33,12 @@ function title($pg) {
         case 'atv':
             echo 'Eventos Anteriores';
             break;
+        case 'ev':
+            echo 'Editar Evento';
+            break;
+        case 'lv':
+            echo 'Login';
+            break;
         case '404':
             echo 'Error 404';
             break;

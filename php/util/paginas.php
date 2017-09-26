@@ -19,6 +19,9 @@ function endereco($pg){
         case 'lv':
             return 'view/loginView';
             break;
+        case 'lm':
+            return 'model/loginModel';
+            break;
         case 'ev':
             return 'view/editarView';
             break;
@@ -27,6 +30,9 @@ function endereco($pg){
             break;
         case 'pmm':
             return 'model/pinModalModel';
+            break;
+        case 'exm':
+            return 'model/excluirModel';
             break;
         case '404':
             return 'view/404';

@@ -112,6 +112,7 @@ function validar() {
 }
 
 $('#agendarForm').validator();
+$('#loginForm').validator();
 
 var principal = {};
 principal.start = function () {

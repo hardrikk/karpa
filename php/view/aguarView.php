@@ -1,6 +1,7 @@
 <?php
 include 'php/controller/aguarController.php';
-
+echo unserialize($_SESSION['logado'])->email;
+exit;
 $listaAguarEvento = gerarAguarEvento();
 
 $mensagem = isset($_GET['m']) ? $_GET['m'] : '';

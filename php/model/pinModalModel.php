@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } elseif ($a == 'ex') {
             $pdo = null;
             $stmt = null;
-            header("Location: ./?p=?&id=$id");
+            header("Location: ./?p=exm&id=$id");
             exit;
         }
     } else {
