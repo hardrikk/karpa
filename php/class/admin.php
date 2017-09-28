@@ -16,5 +16,14 @@ class admin {
         $this->operador = $operador;
         $this->substituto = $substituto;
         $this->admin = $admin;
+        
+        session_start();
+        $_SESSION['logado'] = serialize($this);
+        
     }
+    
+    function logout(){
+        unset($_SESSION['logado']);
+    }
+    
 }

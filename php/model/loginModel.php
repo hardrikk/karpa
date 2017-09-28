@@ -1,9 +1,15 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+if ($_SERVER['REQUEST_METHOD'] != 'POST' && !estarLogado()) {
     header("Location: ./p=404");
     exit;
-} else {
+} elseif (estarLogado() && $_SERVER['REQUEST_METHOD'] == 'GET') {
+    $usu = usuarioLogado();
+    $usu->logout();
+    
+    header("Location: ./?p=pv");
+    exit;
+}else{
     extract($_POST);
     $senha = md5($senha);
 
@@ -24,13 +30,10 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         $usu = new admin();
         $usu->logar($row);
-        
-        session_start();
-        $_SESSION['logado'] = serialize($usu);
-        
+
         $pdo = null;
         $stmt = null;
-        
+
         header("Location: ./?p=agv");
         exit;
     }

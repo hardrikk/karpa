@@ -1,8 +1,9 @@
 <?php
-//---------INCLUDES-----------//
-require_once 'php/controller/templateController.php';
+include 'php/controller/templateController.php';
 $pg = isset($_GET['p']) ? $_GET['p'] : '';
 $view = pg($pg);
+$navLogin = navLogin();
+$navAdmin = navAdmin();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -32,40 +33,44 @@ $view = pg($pg);
         <script src="js/validator.min.js" type="text/javascript"></script>
         <script src="js/jquery.mask.js" type="text/javascript"></script>
         <script src="js/js.js" type="text/javascript"></script>
+        <script defer="defer" src="//barra.brasil.gov.br/barra.js" type="text/javascript"></script>
         <title><?php title($pg); ?></title>
     </head>
     <body>
+        <div id="barra-brasil" style="background:#7F7F7F; height: 5px; padding:0 0 0 0;display:block;"> 
+            <ul id="menu-barra-temp" style="list-style:none;">
+                <li style="display:inline; float:left;padding-right:10px; margin-right:10px; border-right:1px solid #EDEDED"><a href="http://brasil.gov.br" style="font-family:sans,sans-serif; text-decoration:none; color:white;">Portal do Governo Brasileiro</a></li> 
+                <li><a style="font-family:sans,sans-serif; text-decoration:none; color:white;" href="http://epwg.governoeletronico.gov.br/barra/atualize.html">Atualize sua Barra de Governo</a></li>
+            </ul>
+        </div>
         <div class="container-fluid" id="header">
             <img id="logo" src='img/logo.png'>
             <div class="menu">
                 <nav class="navbar navbar-default">
                     <div class="container-fluid">
-                      <div class="navbar-header">
-                        <a class="navbar-brand" href="#">AO VIVO</a>
-                      </div>
-                      <ul class="nav navbar-nav">
-                        <li><a href="?p=av">AGENDAR EVENTO</a></li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                CALENDÁRIO <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="?p=pv">EVENTOS PRÓXIMOS</a></li>
-                                <li><a href="?p=atv">EVENTOS ANTERIORES</a></li>
-                                <li><a href="?p=agv">EVENTOS AGUARDANDO APROVAÇÃO</a></li>
-                            </ul>
-                        </li>
-                      </ul>
-                      <ul style="float: right;" class="nav navbar-nav">
-                          <li><a href="?p=lv">LOGIN <span class="glyphicon glyphicon-log-in"></span></a></li>
-                      </ul>
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="#">AO VIVO</a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li><a href="?p=av">AGENDAR EVENTO</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    CALENDÁRIO <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="?p=pv">EVENTOS PRÓXIMOS</a></li>
+                                    <li><a href="?p=atv">EVENTOS ANTERIORES</a></li>
+                                    <li><a href="?p=agv">EVENTOS AGUARDANDO APROVAÇÃO</a></li>
+                                </ul>
+                            </li>
+                            <?php echo $navAdmin; ?>
+                        </ul>
+                        <ul style="float: right;" class="nav navbar-nav"><?php echo $navLogin; ?></ul>
                     </div>
                 </nav>
             </div>
         </div>
-        <div class="container-fluid" id="content">
-            <?php include $view ?>
-        </div>
+        <div class="container-fluid" id="content"><?php include $view; ?></div>
         <div class="container-fluid" id="footer">
             <p>DI/GETEL</p>
             <p>© 2017 IBGE</p>

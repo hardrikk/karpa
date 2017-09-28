@@ -22,13 +22,22 @@ function gerarAguarEvento() {
                 <th>$dt_inicio $hr_inicio</th>
                 <td>$titulo</td>
                 <td>$responsavel</td>
-                <td style=\"text-align: center;\">
+                <td style=\"text-align: center;\"> "; 
+        $listaAguarEvento .= !estarLogado() ? "
                     <button type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#pinmodal\" data-id=\"$id\" id=\"pinModalEdit\">
                         EDITAR
                     </button>
                     <button type=\"button\" class=\"btn btn-danger btn-sm\" data-toggle=\"modal\" data-target=\"#pinmodal\" data-id=\"$id\" id=\"pinModalExc\">
                         EXCLUÍR
                     </button>
+                </td>
+            </tr>" : "
+                    <a role=\"button\" class=\"btn btn-primary btn-sm\" href=\"?p=avv&id=$id\">
+                        AVALIAR
+                    </a>
+                    <a role=\"button\" class=\"btn btn-danger btn-sm\" href=\"?p=exm&id=$id\">
+                        EXCLUÍR
+                    </a>
                 </td>
             </tr>";
     }

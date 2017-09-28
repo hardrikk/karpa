@@ -12,15 +12,17 @@ function validarCheck($campo) {
     return $campoVal;
 }
 
-function convertData($data){
+function convertData($data) {
     $data = implode("/", array_reverse(explode("-", $data)));
     return $data;
 }
-function convertData2($data){
+
+function convertData2($data) {
     $data = implode("-", array_reverse(explode("/", $data)));
     return $data;
 }
-function convertHora($hora){
+
+function convertHora($hora) {
     $hora = substr($hora, 0, 5);
     return $hora;
 }
@@ -36,6 +38,22 @@ function uniqueAlfa($length = 6) {
     return $pass;
 }
 
+function estarLogado() {
+    if (isset($_SESSION["logado"])) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function usuarioLogado() {
+    if (isset($_SESSION["logado"])) {
+        $usu = unserialize($_SESSION["logado"]);
+        return $usu;
+    }else{
+        return "";
+    }
+}
 //$ref = isset($server["HTTP_REFERER"]) ? explode("?", $server["HTTP_REFERER"]) : '';
 //$ref = isset($ref[1]) ? $ref[1] : '';
 //$ref = explode("&", $ref);

@@ -14,15 +14,15 @@ $mensagem = gerarMensagem($mensagem);
             <legend class="text-center"><h3>LOGIN</h3></legend>
             <?php echo $mensagem; ?>
             <div class="form-group">
-                <label class="control-label col-sm-offset-4 col-sm-1" for="email">* Usuario:</label>
-                <div class="col-sm-2">
+                <div class="col-sm-offset-5 col-sm-2">
+                <label class="control-label" for="usuario">* Usuario:</label>
                     <?php echo $form->usuario; ?>
                     <div class="help-block with-errors"></div>
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-offset-4 col-sm-1" for="pwd">* Senha:</label>
-                <div class="col-sm-2"> 
+                <div class="col-sm-offset-5 col-sm-2"> 
+                <label class="control-label" for="senha">* Senha:</label>
                     <?php echo $form->senha; ?>
                     <div class="help-block with-errors"></div>
                 </div>

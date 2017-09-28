@@ -9,7 +9,6 @@ if($ref != 'p=agv') {
     exit;
 } else {
     $pdo = conectar();
-    extract($_POST);
     extract($_GET);
     
     $query = updateExEvento();
