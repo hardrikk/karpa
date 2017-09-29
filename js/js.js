@@ -98,6 +98,10 @@ $(document).ready(function () {
             $("#local").prop("disabled", "disabled");
         }
     });
+    
+    $("#webcast").click(function (){
+       var checkedWeb = ""; 
+    });
 });
 
 function validar() {
@@ -107,6 +111,14 @@ function validar() {
     var externo = $('#externos').prop("checked");
     if (!unisede && !ue && !agencia && !externo) {
         $('.checkerros').html("<ul class=\"list-unstyled\"><li>Selecionar ao menos um público alvo</li></ul>");
+        return false;
+    }
+}
+function validarAvaliar() {
+    var tvibge = $('#tvibge').prop("checked");
+    var webcast = $('#webcast').prop("checked");
+    if (!webcast && !tvibge ) {
+        $('.checkerros').html("<ul class=\"list-unstyled\"><li>Selecionar ao menos um tipo de serviço</li></ul>");
         return false;
     }
 }

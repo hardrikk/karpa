@@ -39,6 +39,9 @@ function title($pg) {
         case 'lv':
             echo 'SITVI - Login';
             break;
+        case 'avv':
+            echo 'SITVI - Avaliar Evento';
+            break;
         case '404':
             echo 'Error 404';
             break;
