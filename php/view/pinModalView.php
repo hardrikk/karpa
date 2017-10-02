@@ -5,7 +5,7 @@ if (isset($_REQUEST['id'])) {
 }
 ?>
 <div class="modal-header">
-    <h3 class="modal-title">CONFIRMAÇÃO DO PIN</h3>
+    <h3 class="modal-title">Confirmação do PIN</h3>
 </div>
 <?php if ($acao == 'ex') : ?>
     <div class="alert alert-warning text-center" role="alert">

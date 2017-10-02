@@ -67,3 +67,12 @@ function updateExEvento(){
 function selectLogin(){
     return "SELECT * FROM sitvi_admin WHERE usuario = ? and senha = ?";
 }
+
+function updateAvaliarA(){
+    return "UPDATE sitvi_evento SET aprovado = ?, tvibge = ?, webcast = ?, web_externa = ?, ativo = ?"
+            . "WHERE id = ?";
+}
+function updateAvaliarR(){
+    return "UPDATE sitvi_evento SET ativo = ?"
+            . "WHERE id = ?";
+}

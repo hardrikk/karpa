@@ -98,11 +98,39 @@ $(document).ready(function () {
             $("#local").prop("disabled", "disabled");
         }
     });
-    
-    $("#webcast").click(function (){
-       var checkedWeb = ""; 
+
+    $("#reprovar").click(function () {
+        $("#avaliarForm").removeAttr("onsubmit");
+        $("#avaliarForm").submit();
+    });
+
+    $("#webcast").change(function () {
+        var checkedWeb = $('#webcast').prop("checked");
+
+        if (checkedWeb) {
+            $('#webexterna').removeAttr("disabled");
+        } else {
+            $('#webexterna').attr("disabled", "disabled");
+        }
     });
 });
+
+function validarAvaliar() {
+    var tvibge = $('#tvibge').prop("checked");
+    var webcast = $('#webcast').prop("checked");
+    if (!webcast && !tvibge) {
+        $('.alert').html("Selecione ao menos um serviço.");
+        $('.servicoerror').attr("style", "");
+        return false;
+    } else if (webcast) {
+        var externa = $("#webexterna").val().length;
+        if (externa < 53) {
+            $('.alert').html("Informe o endereço do webcast.");
+            $('.servicoerror').attr("style", "");
+            return false;
+        }
+    }
+}
 
 function validar() {
     var unisede = $('#sede').prop("checked");
@@ -114,15 +142,8 @@ function validar() {
         return false;
     }
 }
-function validarAvaliar() {
-    var tvibge = $('#tvibge').prop("checked");
-    var webcast = $('#webcast').prop("checked");
-    if (!webcast && !tvibge ) {
-        $('.checkerros').html("<ul class=\"list-unstyled\"><li>Selecionar ao menos um tipo de serviço</li></ul>");
-        return false;
-    }
-}
 
+$('#avaliarForm').validator();
 $('#agendarForm').validator();
 $('#loginForm').validator();
 
@@ -140,93 +161,93 @@ $(window).scroll(function () {
 });
 principal.start();
 
-$(document).ready(function(){
+$(document).ready(function () {
 
-    $(document).on('click', '#getEvento', function(e){
-  
-     e.preventDefault();
-  
-     var uid = $(this).data('id'); // get id of clicked row
+    $(document).on('click', '#getEvento', function (e) {
 
-     $('.modal-content').html(''); // leave this div blank
-     //$('#modal-loader').show();      // load ajax loader on button click
- 
-     $.ajax({
-          url: 'php/view/proxModalView.php',
-          type: 'POST',
-          data: 'id='+uid,
-          dataType: 'html'
-     })
-     .done(function(data){
-          console.log(data); 
-          $('.modal-content').html(''); // blank before load.
-          $('.modal-content').html(data); // load here
-       //   $('#modal-loader').hide(); // hide loader  
-     })
-     .fail(function(){
-          $('.modal-content').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
-       //   $('#modal-loader').hide();
-     });
+        e.preventDefault();
 
-    });
-});
-$(document).ready(function(){
+        var uid = $(this).data('id'); // get id of clicked row
 
-    $(document).on('click', '#pinModalEdit', function(e){
-  
-     e.preventDefault();
-  
-     var uid = $(this).data('id'); // get id of clicked row
+        $('.modal-content').html(''); // leave this div blank
+        //$('#modal-loader').show();      // load ajax loader on button click
 
-     $('.modal-content').html(''); // leave this div blank
-     //$('#modal-loader').show();      // load ajax loader on button click
- 
-     $.ajax({
-          url: 'php/view/pinModalView.php?a=ed',
-          type: 'POST',
-          data: 'id='+uid, 
-          dataType: 'html'
-     })
-     .done(function(data){
-          console.log(data); 
-          $('.modal-content').html(''); // blank before load.
-          $('.modal-content').html(data); // load here
-       //   $('#modal-loader').hide(); // hide loader  
-     })
-     .fail(function(){
-          $('.modal-content').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
-       //   $('#modal-loader').hide();
-     });
+        $.ajax({
+            url: 'php/view/proxModalView.php',
+            type: 'POST',
+            data: 'id=' + uid,
+            dataType: 'html'
+        })
+                .done(function (data) {
+                    console.log(data);
+                    $('.modal-content').html(''); // blank before load.
+                    $('.modal-content').html(data); // load here
+                    //   $('#modal-loader').hide(); // hide loader  
+                })
+                .fail(function () {
+                    $('.modal-content').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
+                    //   $('#modal-loader').hide();
+                });
 
     });
 });
-$(document).ready(function(){
+$(document).ready(function () {
 
-    $(document).on('click', '#pinModalExc', function(e){
-  
-     e.preventDefault();
-  
-     var uid = $(this).data('id'); // get id of clicked row
+    $(document).on('click', '#pinModalEdit', function (e) {
 
-     $('.modal-content').html(''); // leave this div blank
-     //$('#modal-loader').show();      // load ajax loader on button click
- 
-     $.ajax({
-          url: 'php/view/pinModalView.php?a=ex',
-          type: 'POST',
-          data: 'id='+uid, 
-          dataType: 'html'
-     })
-     .done(function(data){
-          console.log(data); 
-          $('.modal-content').html(''); // blank before load.
-          $('.modal-content').html(data); // load here
-       //   $('#modal-loader').hide(); // hide loader  
-     })
-     .fail(function(){
-          $('.modal-content').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
-       //   $('#modal-loader').hide();
-     });
+        e.preventDefault();
+
+        var uid = $(this).data('id'); // get id of clicked row
+
+        $('.modal-content').html(''); // leave this div blank
+        //$('#modal-loader').show();      // load ajax loader on button click
+
+        $.ajax({
+            url: 'php/view/pinModalView.php?a=ed',
+            type: 'POST',
+            data: 'id=' + uid,
+            dataType: 'html'
+        })
+                .done(function (data) {
+                    console.log(data);
+                    $('.modal-content').html(''); // blank before load.
+                    $('.modal-content').html(data); // load here
+                    //   $('#modal-loader').hide(); // hide loader  
+                })
+                .fail(function () {
+                    $('.modal-content').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
+                    //   $('#modal-loader').hide();
+                });
+
+    });
+});
+$(document).ready(function () {
+
+    $(document).on('click', '#pinModalExc', function (e) {
+
+        e.preventDefault();
+
+        var uid = $(this).data('id'); // get id of clicked row
+
+        $('.modal-content').html(''); // leave this div blank
+        //$('#modal-loader').show();      // load ajax loader on button click
+
+        $.ajax({
+            url: 'php/view/pinModalView.php?a=ex',
+            type: 'POST',
+            data: 'id=' + uid,
+            dataType: 'html'
+        })
+                .done(function (data) {
+                    console.log(data);
+                    $('.modal-content').html(''); // blank before load.
+                    $('.modal-content').html(data); // load here
+                    //   $('#modal-loader').hide(); // hide loader  
+                })
+                .fail(function () {
+                    $('.modal-content').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
+                    //   $('#modal-loader').hide();
+                });
 
     });
 });

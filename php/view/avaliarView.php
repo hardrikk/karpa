@@ -13,7 +13,7 @@ if ($ref == 'p=agv') {
 }
 ?>
 <div class="container">
-    <form id="agendarForm" action="?p=avm&id=<?php echo $id; ?>" method="POST" onsubmit="return validarAvaliar();" data-toggle="validator">
+    <form id="avaliarForm" action="?p=avm&id=<?php echo $id; ?>" method="POST" onsubmit="return validarAvaliar();" data-toggle="validator">
         <fieldset class="form-group">
             <legend>EVENTO</legend>
             <div class="form-group row">
@@ -183,6 +183,10 @@ if ($ref == 'p=agv') {
         </fieldset>
         <fieldset class="form-group">
             <legend>SERVIÇOS</legend>
+            <div class="container servicoerror" align="center" style="display:none;">
+                <div style="display:inline-block;" class="alert alert-danger" role="alert">       
+                </div>
+            </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label lable-agendar">* Tipo:</label>
                 <div class="col-sm-2">
@@ -197,7 +201,7 @@ if ($ref == 'p=agv') {
                         <span class="custom-control-description">WEBCAST</span>
                     </label>
                 </div>
-                <div class="col-sm-4 help-block with-errors checkerros red"></div>
+                <div class="col-sm-4 help-block with-errors"></div>
             </div>
             <div class="form-group row">
                 <label for="webexterna" class="col-sm-2 col-form-label lable-agendar">* Web Externa:</label>

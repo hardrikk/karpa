@@ -39,7 +39,7 @@ class form {
     
     public $tvibge = "<input name=\"tvibge\" id=\"tvibge\" type=\"checkbox\" class=\"custom-control-input\" ";
     public $webcast = "<input name=\"webcast\" id=\"webcast\" type=\"checkbox\" class=\"custom-control-input\" ";
-    public $webexterna = "<input type=\"text\" class=\"form-control\" id=\"webexterna\" name=\"webexterna\" placeholder=\"Endereço do Webcast\" maxlength=\"57\" disabled ";
+    public $webexterna = "<input type=\"text\" class=\"form-control\" id=\"webexterna\" name=\"webexterna\" placeholder=\"Endereço do Webcast\" maxlength=\"57\" disabled value=\" ";
     
     public $usuario = "<input type=\"text\" class=\"form-control\" id=\"usuario\" name=\"usuario\" placeholder=\"Usuário\" maxlength=\"15\" required ";
     public $senha = "<input type=\"password\" class=\"form-control\" id=\"senha\" name=\"senha\" placeholder=\"Senha\" maxlength=\"100\" required ";
@@ -134,7 +134,7 @@ class form {
         $this->desc_publico2 .= "$desc_publico</textarea>";
         $this->tvibge .= "/>";
         $this->webcast .= "/>";
-        $this->webexterna .= "/>";
+        $this->webexterna .= "http://viz-wcs.voxeldigital.com.br/?CodTransmissao=\"/>";
     }
 
     public function formLogin(){
@@ -244,7 +244,7 @@ class form {
         echo "<input class=\"btn btn-success\" type=\"submit\" value=\"Aprovar\" id=\"aprovar\" name=\"aprovar\"/>";
     }
     static function btnReprovar(){
-        echo "<input class=\"btn btn-danger\" type=\"submit\" value=\"Reprovar\" id=\"reprovar\" name=\"reprovar\"/>";
+        echo "<button class=\"btn btn-danger\" id=\"reprovar\" name=\"reprovar\" onclick=\"reprovar();\"/>Reprovar</button>";
     }
 
 }
