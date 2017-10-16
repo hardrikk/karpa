@@ -1,8 +1,5 @@
 <?php
-$ref = isset($_SERVER["HTTP_REFERER"]) ? explode("?", $_SERVER["HTTP_REFERER"]) : '';
-$ref = isset($ref[1]) ? $ref[1] : '';
-$ref = explode("&", $ref);
-$ref = $ref[0];
+$ref = ref();
 
 if($ref != 'p=agv') {
     header("Location: ./?p=404");

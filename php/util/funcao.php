@@ -50,12 +50,17 @@ function usuarioLogado() {
     if (isset($_SESSION["logado"])) {
         $usu = unserialize($_SESSION["logado"]);
         return $usu;
-    }else{
+    } else {
         return "";
     }
 }
-//$ref = isset($server["HTTP_REFERER"]) ? explode("?", $server["HTTP_REFERER"]) : '';
-//$ref = isset($ref[1]) ? $ref[1] : '';
-//$ref = explode("&", $ref);
-//$ref = $ref[0];
+
+function ref() {
+    $ref = isset($_SERVER["HTTP_REFERER"]) ? explode("?", $_SERVER["HTTP_REFERER"]) : '';
+    $ref = isset($ref[1]) ? $ref[1] : '';
+    $ref = explode("&", $ref);
+    $ref = $ref[0];
+    return $ref;
+}
+
 ?>

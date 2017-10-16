@@ -76,3 +76,7 @@ function updateAvaliarR(){
     return "UPDATE sitvi_evento SET ativo = ?"
             . "WHERE id = ?";
 }
+
+function selectArquiView(){
+    return "SELECT * FROM sitvi_evento WHERE aprovado=1 and ativo=0 and status=0";
+}

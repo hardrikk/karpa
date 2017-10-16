@@ -35,7 +35,7 @@ function gerarAguarEvento() {
                     <a role=\"button\" class=\"btn btn-primary btn-sm\" href=\"?p=avv&id=$id\">
                         AVALIAR
                     </a>
-                    <a role=\"button\" class=\"btn btn-danger btn-sm\" href=\"?p=exm&id=$id\">
+                    <a role=\"button\" class=\"btn btn-danger btn-sm\" data-toggle=\"modal\" data-target=\"#pinmodal\" data-id=\"$id\" id=\"pinModalExcA\">
                         EXCLUÍR
                     </a>
                 </td>
@@ -47,11 +47,8 @@ function gerarAguarEvento() {
     return $listaAguarEvento;
 }
 
-function gerarAguarMensagem($mensagem, $server) {
-    $ref = isset($server["HTTP_REFERER"]) ? explode("?", $server["HTTP_REFERER"]) : '';
-    $ref = isset($ref[1]) ? $ref[1] : '';
-    $ref = explode("&",$ref);
-    $ref = $ref[0];
+function gerarAguarMensagem($mensagem) {
+    $ref = ref();
 
     $men = "";
     if ($ref == 'p=av' || $ref == 'p=agv' || $ref == 'p=ev' || $ref == 'p=avv') {

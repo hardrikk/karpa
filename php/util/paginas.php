@@ -40,6 +40,9 @@ function endereco($pg){
         case 'avm':
             return 'model/avaliarModel';
             break;
+        case 'aqv':
+            return 'view/arquiView';
+            break;
         case '404':
             return 'view/404';
             break;

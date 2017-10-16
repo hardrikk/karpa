@@ -1,20 +1,21 @@
 <?php
 if (isset($_REQUEST['id'])) {
     $id = intval($_REQUEST['id']);
-    $acao = $_GET['a'];
+    extract($_GET);
 }
 ?>
 <div class="modal-header">
     <h3 class="modal-title">Confirmação do PIN</h3>
 </div>
-<?php if ($acao == 'ex') : ?>
+<?php if ($a== 'ex') : ?>
     <div class="alert alert-warning text-center" role="alert">
         <strong>Cuidado!</strong> Deseja realmente excluír a solicitação?
     </div>
 <?php endif; ?>
 <div class="modal-body">
     <div class="container-fluid">
-        <form id="confirmarPin" action="?p=pmm<?php echo "&id=" . $id . "&a=" . $acao ?>" method="POST" data-toggle="validator">
+        <form id="confirmarPin" action="<?php echo !isset($ad) ? "?p=pmm&id=$id&a=$a" : "?p=exm&id=$id"?>" method="POST" data-toggle="validator">
+            <?php if(!isset($ad)) :?>
             <div class="form-group row">
                 <label for="pin" class="col-sm-3 col-form-label lable-agendar">PIN:</label>
                 <div class="col-sm-6">
@@ -24,10 +25,16 @@ if (isset($_REQUEST['id'])) {
             </div>
             <div class="form-group row">
                 <div class="col-sm-12" align="center">
-                    
                     <input class="btn btn-primary" type="submit" value="Enviar" id="enviar" name="enviar">
                 </div>
             </div>
+            <?php else : ?>
+            <div class="form-group row">
+                <div class="col-sm-12" align="center">
+                    <input class="btn btn-primary" type="submit" value="Confirmar" id="enviar" name="enviar">
+                </div>
+            </div>
+            <?php endif; ?>
         </form>
     </div>
 </div>

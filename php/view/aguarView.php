@@ -4,7 +4,7 @@ include 'php/controller/aguarController.php';
 $listaAguarEvento = gerarAguarEvento();
 
 $mensagem = isset($_GET['m']) ? $_GET['m'] : '';
-$mensagem = gerarAguarMensagem($mensagem, $_SERVER);
+$mensagem = gerarAguarMensagem($mensagem);
 ?>
 <div class="title-pag container-fluid">
     <h2>EVENTOS AGUARDANDO APROVAÇÃO</h2>

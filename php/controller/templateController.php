@@ -65,7 +65,7 @@ function navAdmin(){
                                     EVENTOS OCULTOS <span class=\"caret\"></span>
                                 </a>
                         <ul class=\"dropdown-menu\">
-                            <li><a href=\"?p=#\">EVENTOS ARQUIVADOS</a></li>
+                            <li><a href=\"?p=aqv\">EVENTOS ARQUIVADOS</a></li>
                             <li><a href=\"?p=#\">EVENTOS REPROVADOS</a></li>
                             <li><a href=\"?p=#\">EVENTOS EXCLUÍDOS</a></li>
                         </ul>
