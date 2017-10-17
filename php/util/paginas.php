@@ -49,6 +49,9 @@ function endereco($pg){
         case 'exv':
             return 'view/excluidosView';
             break;
+        case 'eav':
+            return 'view/editarAdmView';
+            break;
         case '404':
             return 'view/404';
             break;

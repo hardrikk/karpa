@@ -39,7 +39,7 @@ class form {
     
     public $tvibge = "<input name=\"tvibge\" id=\"tvibge\" type=\"checkbox\" class=\"custom-control-input\" ";
     public $webcast = "<input name=\"webcast\" id=\"webcast\" type=\"checkbox\" class=\"custom-control-input\" ";
-    public $webexterna = "<input type=\"text\" class=\"form-control\" id=\"webexterna\" name=\"webexterna\" placeholder=\"Endereço do Webcast\" maxlength=\"57\" disabled value=\" ";
+    public $webexterna = "<input type=\"text\" class=\"form-control\" id=\"webexterna\" name=\"webexterna\" placeholder=\"Endereço do Webcast\" maxlength=\"57\" ";
     
     public $usuario = "<input type=\"text\" class=\"form-control\" id=\"usuario\" name=\"usuario\" placeholder=\"Usuário\" maxlength=\"15\" required ";
     public $senha = "<input type=\"password\" class=\"form-control\" id=\"senha\" name=\"senha\" placeholder=\"Senha\" maxlength=\"100\" required ";
@@ -100,6 +100,10 @@ class form {
         $this->agencia .= form::check($agencia);
         $this->externo .= form::check($externo);
         $this->desc_publico .= "$desc_publico</textarea>";
+        
+        $this->tvibge .= form::check($tvibge);
+        $this->webcast .= form::check($webcast);
+        $this->webexterna .= " value=\"$web_externa\" />";
     }
     
     public function formAvaliar($id) {
@@ -134,7 +138,7 @@ class form {
         $this->desc_publico2 .= "$desc_publico</textarea>";
         $this->tvibge .= "/>";
         $this->webcast .= "/>";
-        $this->webexterna .= "http://viz-wcs.voxeldigital.com.br/?CodTransmissao=\"/>";
+        $this->webexterna .= "value=\"http://viz-wcs.voxeldigital.com.br/?CodTransmissao=\" disabled />";
     }
 
     public function formLogin(){

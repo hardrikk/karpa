@@ -38,6 +38,9 @@ function title($pg) {
         case 'ev':
             echo 'SITVI - Editar Evento';
             break;
+        case 'eav':
+            echo 'SITVI - Editar Evento';
+            break;
         case 'lv':
             echo 'SITVI - Login';
             break;

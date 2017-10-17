@@ -1,4 +1,6 @@
 $(document).ready(function () {
+
+    //datapicker dos formularios
     var today = new Date();
     $('#sandbox-container input').datepicker({
         format: "dd/mm/yyyy",
@@ -7,7 +9,8 @@ $(document).ready(function () {
         todayHighlight: true,
         startDate: new Date(today.getFullYear(), today.getMonth(), today.getDate())
     });
-
+    
+    //data tables de todas as paginas
     $('#tablepag').DataTable({
         order: false,
         "language": {
@@ -99,11 +102,15 @@ $(document).ready(function () {
         }
     });
 
-    $("#reprovar").click(function () {
-        $("#avaliarForm").removeAttr("onsubmit");
-        $("#avaliarForm").submit();
-    });
+//    $("#reprovar").click(function () {
+//        $("#avaliarForm").removeAttr("onsubmit");
+//        $("#avaliarForm").submit();
+//    });
 
+    if(!$("#webcast").prop("checked")){
+        $('#webexterna').attr("disabled", "disabled");
+    }
+    
     $("#webcast").change(function () {
         var checkedWeb = $('#webcast').prop("checked");
 
@@ -116,6 +123,33 @@ $(document).ready(function () {
 });
 
 function validarAvaliar() {
+    var tvibge = $('#tvibge').prop("checked");
+    var webcast = $('#webcast').prop("checked");
+    if (!webcast && !tvibge) {
+        $('.alert').html("Selecione ao menos um serviço.");
+        $('.servicoerror').attr("style", "");
+        return false;
+    } else if (webcast) {
+        var externa = $("#webexterna").val().length;
+        if (externa < 53) {
+            $('.alert').html("Informe o endereço do webcast.");
+            $('.servicoerror').attr("style", "");
+            return false;
+        }
+    }
+}
+
+function validarEditarAdm() {
+    var unisede = $('#sede').prop("checked");
+    var ue = $('#ue').prop("checked");
+    var agencia = $('#agencia').prop("checked");
+    var externo = $('#externos').prop("checked");
+    if (!unisede && !ue && !agencia && !externo) {
+        $('.alert').html("<ul class=\"list-unstyled\"><li>Selecionar ao menos um público alvo</li></ul>");
+        $('.checkerros').attr("style", "");
+        return false;
+    }
+    
     var tvibge = $('#tvibge').prop("checked");
     var webcast = $('#webcast').prop("checked");
     if (!webcast && !tvibge) {
