@@ -1,6 +1,6 @@
 <?php
 
-function gerarProxEvento() {
+function gerarArquiEvento() {
     $pdo = conectar();
 
     $query = selectArquiView();

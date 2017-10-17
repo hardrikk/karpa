@@ -5,11 +5,11 @@ if (isset($_REQUEST['id'])) {
 }
 ?>
 <div class="modal-header">
-    <h3 class="modal-title">Confirmação do PIN</h3>
+    <h3 class="modal-title">Confirmação</h3>
 </div>
 <?php if ($a== 'ex') : ?>
     <div class="alert alert-warning text-center" role="alert">
-        <strong>Cuidado!</strong> Deseja realmente excluír a solicitação?
+        <strong>Cuidado!</strong> Deseja realmente excluír o evento?
     </div>
 <?php endif; ?>
 <div class="modal-body">

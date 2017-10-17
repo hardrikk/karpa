@@ -63,4 +63,11 @@ function ref() {
     return $ref;
 }
 
+function verificarAcesso() {
+    if (!estarLogado()) {
+        header("Location: ./?p=404");
+        exit;
+    }
+}
+
 ?>

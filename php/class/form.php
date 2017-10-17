@@ -243,8 +243,9 @@ class form {
     static function btnAprovar(){
         echo "<input class=\"btn btn-success\" type=\"submit\" value=\"Aprovar\" id=\"aprovar\" name=\"aprovar\"/>";
     }
-    static function btnReprovar(){
-        echo "<button class=\"btn btn-danger\" id=\"reprovar\" name=\"reprovar\" onclick=\"reprovar();\"/>Reprovar</button>";
+    static function btnReprovar($id){
+        //echo "<button class=\"btn btn-danger\" id=\"reprovar\" name=\"reprovar\" onclick=\"reprovar();\"/>Reprovar</button>";
+        echo "<button type=\"button\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#repromodal\" data-id=\"$id\" id=\"reproEvento\">Reprovar</button>";
     }
 
 }

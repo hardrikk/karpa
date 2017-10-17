@@ -1,6 +1,6 @@
-<?php 
-    $form = new form();
-    $form->formAgendar();
+<?php
+$form = new form();
+$form->formAgendar();
 ?>
 <div class="container">
     <form id="agendarForm" action="?p=am" method="POST" onsubmit="return validar();" data-toggle="validator">
@@ -34,7 +34,7 @@
                             <span class="glyphicon glyphicon-calendar"></span>
                         </div>
                     </div>
-                        <div class="help-block with-errors"></div>
+                    <div class="help-block with-errors"></div>
                 </div>
                 <label class="col-sm-2 col-form-label lable-agendar">* Data de Término:</label>
                 <div class="col-sm-3">
@@ -44,7 +44,7 @@
                             <span class="glyphicon glyphicon-calendar"></span>
                         </div>
                     </div>
-                        <div class="help-block with-errors"></div>
+                    <div class="help-block with-errors"></div>
                 </div>
             </div>
             <div class="form-group row">
@@ -137,6 +137,10 @@
                 </div>
             </div>
             <div class="form-group row">
+                <div class="container checkerros" align="center" style="display:none;">
+                    <div style="display:inline-block;" class="alert alert-danger" role="alert">       
+                    </div>
+                </div>
                 <label class="col-sm-2 col-form-label lable-agendar">* Público Alvo:</label>
                 <div class="col-sm-2">
                     <label class="custom-control custom-checkbox">
@@ -162,7 +166,6 @@
                         <span class="custom-control-description">Usuários Externos</span>
                     </label>
                 </div>
-                <div class="help-block with-errors checkerros"></div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label lable-agendar">Descrição do público:</label>

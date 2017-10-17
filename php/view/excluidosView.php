@@ -1,15 +1,12 @@
 <?php
-include 'php/controller/aguarController.php';
+verificarAcesso();
+include 'php/controller/excluidosController.php';
 
-$listaAguarEvento = gerarAguarEvento();
-
-$mensagem = isset($_GET['m']) ? $_GET['m'] : '';
-$mensagem = gerarMensagem($mensagem);
+$listaExcluidoEvento = gerarExcluidoEvento();
 ?>
 <div class="title-pag container-fluid">
-    <h2>EVENTOS AGUARDANDO APROVAÇÃO</h2>
+    <h2>EVENTOS EXCLUÍDOS</h2>
 </div>
-<?php echo $mensagem; ?>
 <div class="datatables">
     <div class="table-responsive">
         <table id="tablepag" class="table table-striped table-bordered">
@@ -22,16 +19,14 @@ $mensagem = gerarMensagem($mensagem);
                 </tr>
             </thead>
             <tbody>
-                <?php echo $listaAguarEvento; ?>
+                <?php echo $listaExcluidoEvento; ?>
             </tbody>
+
         </table>
     </div>
 </div>
-<div id="pinmodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog">
-        <div class="modal-content">
 
-        </div>
-    </div>
-</div>
+
+
+
 

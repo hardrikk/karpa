@@ -1,11 +1,11 @@
 <?php
 verificarAcesso();
-include 'php/controller/arquiController.php';
+include 'php/controller/reproController.php';
 
-$listaArquiEvento = gerarArquiEvento();
+$listaReproEvento = gerarReproEvento();
 ?>
 <div class="title-pag container-fluid">
-    <h2>EVENTOS ARQUIVADOS</h2>
+    <h2>EVENTOS REPROVADOS</h2>
 </div>
 <div class="datatables">
     <div class="table-responsive">
@@ -19,11 +19,13 @@ $listaArquiEvento = gerarArquiEvento();
                 </tr>
             </thead>
             <tbody>
-                <?php echo $listaArquiEvento; ?>
+                <?php echo $listaReproEvento; ?>
             </tbody>
 
         </table>
     </div>
 </div>
+
+
 
 

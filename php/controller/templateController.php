@@ -19,6 +19,8 @@ function pg($pg) {
     }
 }
 
+$ano = date("Y");
+
 function title($pg) {
     switch ($pg) {
         case 'av':
@@ -41,6 +43,15 @@ function title($pg) {
             break;
         case 'avv':
             echo 'SITVI - Avaliar Evento';
+            break;
+        case 'aqv':
+            echo 'SITVI - Eventos Arquivados';
+            break;
+        case 'rpv':
+            echo 'SITVI - Eventos Reprovados';
+            break;
+        case 'exv':
+            echo 'SITVI - Eventos Excluídos';
             break;
         case '404':
             echo 'Error 404';
@@ -66,8 +77,8 @@ function navAdmin(){
                                 </a>
                         <ul class=\"dropdown-menu\">
                             <li><a href=\"?p=aqv\">EVENTOS ARQUIVADOS</a></li>
-                            <li><a href=\"?p=#\">EVENTOS REPROVADOS</a></li>
-                            <li><a href=\"?p=#\">EVENTOS EXCLUÍDOS</a></li>
+                            <li><a href=\"?p=rpv\">EVENTOS REPROVADOS</a></li>
+                            <li><a href=\"?p=exv\">EVENTOS EXCLUÍDOS</a></li>
                         </ul>
                     </li>
                     <li class=\"dropdown\">

@@ -43,6 +43,12 @@ function endereco($pg){
         case 'aqv':
             return 'view/arquiView';
             break;
+        case 'rpv':
+            return 'view/reproView';
+            break;
+        case 'exv':
+            return 'view/excluidosView';
+            break;
         case '404':
             return 'view/404';
             break;

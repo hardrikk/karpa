@@ -73,7 +73,7 @@ $navAdmin = navAdmin();
         <div class="container-fluid" id="content"><?php include $view; ?></div>
         <div class="container-fluid" id="footer">
             <p>DI/GETEL</p>
-            <p>© 2017 IBGE</p>
+            <p>© <?php echo $ano; ?> IBGE</p>
         </div>
     </body>
 </html>

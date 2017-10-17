@@ -3,7 +3,7 @@ function selectProxView(){
     return "SELECT * 
             FROM sitvi_evento
             WHERE aprovado=1 and status=0 and ativo=1 and (dt_final >= CURRENT_DATE) 
-            ORDER BY dt_inicio DESC, hr_inicio ASC";
+            ORDER BY dt_inicio ASC, hr_inicio ASC";
 }
 function selectProxModalView(){
     return "SELECT e.*, l.local "
@@ -79,4 +79,12 @@ function updateAvaliarR(){
 
 function selectArquiView(){
     return "SELECT * FROM sitvi_evento WHERE aprovado=1 and ativo=0 and status=0";
+}
+
+function selectReproView(){
+    return "SELECT * FROM sitvi_evento WHERE aprovado=0 and ativo=0 and status=0";
+}
+
+function selectExcluidoView(){
+    return "SELECT * FROM sitvi_evento WHERE status=1 and ativo=0";
 }

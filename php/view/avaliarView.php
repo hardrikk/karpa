@@ -211,7 +211,7 @@ if ($ref == 'p=agv') {
         <div class="form-group row">
             <div class="col-sm-12" align="center">
                 <?php
-                form::btnReprovar();
+                form::btnReprovar($id);
                 ?>
                 <?php
                 form::btnAprovar();
@@ -226,5 +226,12 @@ if ($ref == 'p=agv') {
             </div>
         </div>
     </form>
+</div>
+<div id="repromodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+        </div>
+    </div>
 </div>
 

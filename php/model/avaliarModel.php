@@ -33,7 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
         header("Location: ./?p=agv&m=a");
         exit;
     } elseif (isset($reprovar)) {
-        
+        header("Location: ./?p=agv&m=r");
+        exit;
     }
 }
 ?>

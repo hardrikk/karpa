@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST' && !estarLogado()) {
     if ($stmt->rowCount() == 0) {
         $pdo = null;
         $stmt = null;
-        header("Location: ./?p=lv&m=e");
+        header("Location: ./?p=lv&m=li");
         exit;
     } else {
         $row = $stmt->fetch(PDO::FETCH_ASSOC);

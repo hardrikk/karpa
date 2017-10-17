@@ -138,7 +138,8 @@ function validar() {
     var agencia = $('#agencia').prop("checked");
     var externo = $('#externos').prop("checked");
     if (!unisede && !ue && !agencia && !externo) {
-        $('.checkerros').html("<ul class=\"list-unstyled\"><li>Selecionar ao menos um público alvo</li></ul>");
+        $('.alert').html("<ul class=\"list-unstyled\"><li>Selecionar ao menos um público alvo</li></ul>");
+        $('.checkerros').attr("style", "");
         return false;
     }
 }
@@ -264,6 +265,36 @@ $(document).ready(function () {
 
         $.ajax({
             url: 'php/view/pinModalView.php?a=ex&ad=1',
+            type: 'POST',
+            data: 'id=' + uid,
+            dataType: 'html'
+        })
+                .done(function (data) {
+                    console.log(data);
+                    $('.modal-content').html(''); // blank before load.
+                    $('.modal-content').html(data); // load here
+                    //   $('#modal-loader').hide(); // hide loader  
+                })
+                .fail(function () {
+                    $('.modal-content').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
+                    //   $('#modal-loader').hide();
+                });
+
+    });
+});
+$(document).ready(function () {
+
+    $(document).on('click', '#reproEvento', function (e) {
+
+        e.preventDefault();
+
+        var uid = $(this).data('id'); // get id of clicked row
+
+        $('.modal-content').html(''); // leave this div blank
+        //$('#modal-loader').show();      // load ajax loader on button click
+
+        $.ajax({
+            url: 'php/view/comentModalView.php',
             type: 'POST',
             data: 'id=' + uid,
             dataType: 'html'
