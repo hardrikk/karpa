@@ -59,6 +59,8 @@ function title($pg) {
         case '404':
             echo 'Error 404';
             break;
+        default:
+            echo 'SITVI - Eventos Próximos';
     }
 }
 

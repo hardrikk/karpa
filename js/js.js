@@ -9,7 +9,7 @@ $(document).ready(function () {
         todayHighlight: true,
         startDate: new Date(today.getFullYear(), today.getMonth(), today.getDate())
     });
-    
+
     //data tables de todas as paginas
     $('#tablepag').DataTable({
         order: false,
@@ -107,10 +107,10 @@ $(document).ready(function () {
 //        $("#avaliarForm").submit();
 //    });
 
-    if(!$("#webcast").prop("checked")){
+    if (!$("#webcast").prop("checked")) {
         $('#webexterna').attr("disabled", "disabled");
     }
-    
+
     $("#webcast").change(function () {
         var checkedWeb = $('#webcast').prop("checked");
 
@@ -120,8 +120,16 @@ $(document).ready(function () {
             $('#webexterna').attr("disabled", "disabled");
         }
     });
-});
 
+    $(".loader").click(function () {
+        $('#loader').modal('show');
+    });
+
+
+});
+function loader(){
+    $('#loader').modal('show');
+}
 function validarAvaliar() {
     var tvibge = $('#tvibge').prop("checked");
     var webcast = $('#webcast').prop("checked");
@@ -135,7 +143,11 @@ function validarAvaliar() {
             $('.alert').html("Informe o endereço do webcast.");
             $('.servicoerror').attr("style", "");
             return false;
+        }else{
+            $('#loader').modal('show');
         }
+    }else{
+        $('#loader').modal('show');
     }
 }
 
@@ -148,8 +160,10 @@ function validarEditarAdm() {
         $('.alert').html("<ul class=\"list-unstyled\"><li>Selecionar ao menos um público alvo</li></ul>");
         $('.checkerros').attr("style", "");
         return false;
+    }else{
+        $('#loader').modal('show');
     }
-    
+
     var tvibge = $('#tvibge').prop("checked");
     var webcast = $('#webcast').prop("checked");
     if (!webcast && !tvibge) {
@@ -162,7 +176,11 @@ function validarEditarAdm() {
             $('.alert').html("Informe o endereço do webcast.");
             $('.servicoerror').attr("style", "");
             return false;
+        }else{
+            $('#loader').modal('show');
         }
+    }else{
+        $('#loader').modal('show');
     }
 }
 
@@ -175,6 +193,8 @@ function validar() {
         $('.alert').html("<ul class=\"list-unstyled\"><li>Selecionar ao menos um público alvo</li></ul>");
         $('.checkerros').attr("style", "");
         return false;
+    }else{
+        $('#loader').modal('show');
     }
 }
 
@@ -195,6 +215,29 @@ $(window).scroll(function () {
     $('#footer').css('top', h); // PARA FIXAR O FOOTER NA PARTE INFERIOR DA PAGINA
 });
 principal.start();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $(document).ready(function () {
 
