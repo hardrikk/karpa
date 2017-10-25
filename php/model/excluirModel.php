@@ -1,8 +1,9 @@
 <?php
 
-$ref = ref();
-
-if ($ref == 'p=agv' || $ref == 'p=pv') {
+if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+    header("Location: ./?p=404");
+    exit;
+} else {
     $pdo = conectar();
     extract($_GET);
 
@@ -28,9 +29,6 @@ if ($ref == 'p=agv' || $ref == 'p=pv') {
             exit;
         }
     }
-} else {
-    header("Location: ./?p=404");
-    exit;
 }
 ?>
 

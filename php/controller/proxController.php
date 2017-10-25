@@ -19,7 +19,7 @@ function gerarProxEvento() {
                 <td>$responsavel</td>
                 <td style=\"text-align: center;\">";
         $listaProxEvento .= !estarLogado() ? "
-                <button type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#proxmodal\" data-id=\"$id\" id=\"getEvento\">
+                <button type=\"button\" class=\"btn btn-info btn-sm\" data-toggle=\"modal\" data-target=\"#proxmodal\" data-id=\"$id\" id=\"getEvento\">
                     <span class=\"glyphicon glyphicon-search\" aria-hidden=\"true\"></span> INFORMAÇÕES
                 </button>
                 </td>

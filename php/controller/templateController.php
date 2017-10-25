@@ -56,6 +56,9 @@ function title($pg) {
         case 'exv':
             echo 'SITVI - Eventos Excluídos';
             break;
+        case 'sv':
+            echo 'SITVI - Sessão Evento';
+            break;
         case '404':
             echo 'Error 404';
             break;

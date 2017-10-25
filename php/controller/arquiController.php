@@ -18,7 +18,10 @@ function gerarArquiEvento() {
                 <td>$titulo</td>
                 <td>$responsavel</td>
                 <td style=\"text-align: center;\">
-                    <button type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#proxmodal\" data-id=\"$id\" id=\"getEvento\">
+                    <button type=\"button\" class=\"btn btn-info btn-sm\" data-toggle=\"modal\" data-target=\"#proxmodal\" data-id=\"$id\" id=\"getEvento\">
+                        VISUALIZAR
+                    </button>
+                    <button type=\"button\" class=\"btn btn-warning btn-sm\" data-toggle=\"modal\" data-target=\"#proxmodal\" data-id=\"$id\" id=\"getEvento\">
                         DESARQUIVAR
                     </button>
                 </td>

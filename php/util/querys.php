@@ -43,6 +43,10 @@ function insertEvento(){
             VALUES (:titulo, :desc_evento, :dtinicio, :dtfinal, :hrinicio, :hrfinal, :uorg, :local, :nome, :email, :telf, :ramal, :cell, :slide, :chat, :pergunta, :enquete,
             :observacao, :unisede, :ues, :agencia, :externos, :desc_publico, :pin)";
 }
+function insertPrimeiraSessao(){
+    return "INSERT INTO sitvi_sessao (fkevento, titulo, data, hr_inicio, hr_final) 
+            VALUES (?, ?, ?, ?, ?)";
+}
 
 function selectPinEvento(){
     return "SELECT id, pin FROM sitvi_evento WHERE id=:id and pin=:pin";
@@ -56,6 +60,12 @@ function updateEvento(){
     return "UPDATE sitvi_evento SET titulo = ?, desc_evento = ?, dt_inicio = ?, dt_final = ?, hr_inicio = ?, hr_final = ?, "
             . "fkuorg = ?, fklocal = ?, responsavel = ?, email = ?, telefone = ?, ramal = ?, celular = ?, slide = ?, chat = ?, "
             . "pergunta = ?, enquete = ?, observacao = ?, sede = ?, ue = ?, agencia = ?, externo = ?, desc_publico = ? "
+            . "WHERE id = ?";
+}
+function updateEventoAdm(){
+    return "UPDATE sitvi_evento SET titulo = ?, desc_evento = ?, dt_inicio = ?, dt_final = ?, hr_inicio = ?, hr_final = ?, "
+            . "fkuorg = ?, fklocal = ?, responsavel = ?, email = ?, telefone = ?, ramal = ?, celular = ?, slide = ?, chat = ?, "
+            . "pergunta = ?, enquete = ?, observacao = ?, sede = ?, ue = ?, agencia = ?, externo = ?, desc_publico = ?, tvibge = ?, webcast = ?, web_externa = ? "
             . "WHERE id = ?";
 }
 
@@ -87,4 +97,20 @@ function selectReproView(){
 
 function selectExcluidoView(){
     return "SELECT * FROM sitvi_evento WHERE status=1 and ativo=0";
+}
+
+function selectEventoVideo(){
+    return "SELECT DISTINCT e.id 
+                FROM sitvi_evento e 
+                JOIN sitvi_sessao se ON e.id = se.fkevento
+                JOIN sitvi_video s ON se.id = s.fksessao 
+                WHERE e.aprovado=1 and e.status=0 and e.ativo=1 and (e.dt_final < CURRENT_DATE) and e.id = ? ";
+}
+
+function updateArquiEvento(){
+    return "UPDATE sitvi_evento SET ativo = ? WHERE id = ?";
+}
+
+function selectSessaoEvento(){
+    return "SELECT id, titulo, data, hr_inicio, hr_final, palestrante FROM sitvi_sessao WHERE fkevento = ?";
 }

@@ -4,7 +4,7 @@ function gerarMensagem($mensagem) {
     $ref = ref();
 
     $men = "";
-    if ($ref == 'p=av' || $ref == 'p=agv' || $ref == 'p=ev' || $ref == 'p=avv' || $ref == 'p=pv' || $ref == 'p=lv') {
+    if ($ref == 'p=av' || $ref == 'p=agv' || $ref == 'p=ev' || $ref == 'p=avv' || $ref == 'p=pv' || $ref == 'p=lv' || $ref == 'p=atv') {
         if (trim($mensagem)) {
             $men = "<div class=\"container\" align=\"center\">
                         <div style=\"display:inline-block;\" class=\"alert ";
@@ -24,10 +24,15 @@ function gerarMensagem($mensagem) {
                                 <button type=\"button\" class=\"close\" data-dismiss=\"alert\"><span aria-hidden=\"true\">&times;</span></button>
                                 <strong>Sucesso!</strong> Evento alterado com sucesso. ";
                     break;
+                case 'aq':
+                    $men .= "alert-success\" role=\"alert\">
+                                <button type=\"button\" class=\"close\" data-dismiss=\"alert\"><span aria-hidden=\"true\">&times;</span></button>
+                                <strong>Sucesso!</strong> Evento arquivado com sucesso. ";
+                    break;
                 case 'ex':
                     $men .= "alert-success\" role=\"alert\">
                                 <button type=\"button\" class=\"close\" data-dismiss=\"alert\"><span aria-hidden=\"true\">&times;</span></button>
-                                <strong>Sucesso!</strong> Solicitação excluída com sucesso. ";
+                                <strong>Sucesso!</strong> Evento excluído com sucesso. ";
                     break;
                 case 'a':
                     $men .= "alert-success\" role=\"alert\">
@@ -40,7 +45,7 @@ function gerarMensagem($mensagem) {
                                 <strong>Sucesso!</strong> Evento reprovado com sucesso. ";
                     break;
                 case 'li':
-                $men .= "alert-danger\" role=\"alert\">
+                    $men .= "alert-danger\" role=\"alert\">
                                 <button type=\"button\" class=\"close\" data-dismiss=\"alert\"><span aria-hidden=\"true\">&times;</span></button>
                                 <strong>Acesso Negado!</strong> Usuário ou senha não conferem.";
                 break;

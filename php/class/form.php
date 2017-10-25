@@ -140,6 +140,40 @@ class form {
         $this->webcast .= "/>";
         $this->webexterna .= "value=\"http://viz-wcs.voxeldigital.com.br/?CodTransmissao=\" disabled />";
     }
+    public function formSessao($id) {
+        $evento = evento::gerarEventoID($id);
+        extract($evento);
+
+        $dt_inicio = convertData($dt_inicio);
+        $dt_final = convertData($dt_final);
+
+        $this->titulo .= " value=\"$titulo\" disabled />";
+        $this->uorg2 .= form::gerarUorgID($fkuorg);
+        $this->locais3 .= form::gerarLocalID($fklocal);
+        $this->dtinicio .= " value=\"$dt_inicio\" disabled />";
+        $this->dtfinal .= " value=\"$dt_final\" disabled />";
+        $this->hrinicio .= " value=\"$hr_inicio\" disabled />";
+        $this->hrfinal .= "  value=\"$hr_final\" disabled />";
+        $this->desc_evento2 .= "$desc_evento</textarea>";
+        $this->responsavel .= " value=\"$responsavel\" disabled />";
+        $this->email .= " value=\"$email\" disabled />";
+        $this->telefone .= " value=\"$telefone\" disabled />";
+        $this->ramal .= " value=\"$ramal\" disabled />";
+        $this->celular .= " value=\"$celular\" disabled />";
+        $this->chat .= " disabled " . form::check($chat);
+        $this->slide .= " disabled " . form::check($slide);
+        $this->enquete .= " disabled " . form::check($enquete);
+        $this->pergunta .= " disabled " . form::check($pergunta);
+        $this->observacao2 .= "$observacao</textarea>";
+        $this->sede .= " disabled " . form::check($sede);
+        $this->ues .= " disabled " . form::check($ue);
+        $this->agencia .= " disabled " . form::check($agencia);
+        $this->externo .= " disabled " . form::check($externo);
+        $this->desc_publico2 .= "$desc_publico</textarea>";
+        $this->tvibge .= " disabled " . form::check($tvibge);
+        $this->webcast .= " disabled " . form::check($webcast);
+        $this->webexterna .= "value=\"$web_externa\" disabled />";
+    }
 
     public function formLogin(){
         $this->usuario .= "/>";
@@ -242,7 +276,7 @@ class form {
         echo "<a href=\"?p=agv\" class=\"btn btn-default\" role=\"button\">Voltar</a>";
     }
     static function btnVoltar() {
-        echo "<input type=\"button\" class=\"btn btn-info\" value=\"Voltar\" onClick=\"history.go(-1)\"/>";
+        echo "<input type=\"button\" class=\"btn btn-default\" value=\"Voltar\" onClick=\"history.go(-1)\"/>";
     }
     static function btnAprovar(){
         echo "<input class=\"btn btn-success\" type=\"submit\" value=\"Aprovar\" id=\"aprovar\" name=\"aprovar\"/>";

@@ -43,6 +43,9 @@ function endereco($pg){
         case 'aqv':
             return 'view/arquiView';
             break;
+        case 'aqm':
+            return 'model/arquiModel';
+            break;
         case 'rpv':
             return 'view/reproView';
             break;
@@ -51,6 +54,12 @@ function endereco($pg){
             break;
         case 'eav':
             return 'view/editarAdmView';
+            break;
+        case 'eam':
+            return 'model/editarAdmModel';
+            break;
+        case 'sv':
+            return 'view/sessaoView';
             break;
         case '404':
             return 'view/404';

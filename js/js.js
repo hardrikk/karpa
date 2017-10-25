@@ -125,7 +125,12 @@ $(document).ready(function () {
         $('#loader').modal('show');
     });
 
-
+    $(".arquivarButton").click(function (){
+        var id = $(this).prop("name");
+        var action = "?p=aqm&id="+id;
+        $("#arquivarForm").prop("action", action);
+    });
+    
 });
 function loader(){
     $('#loader').modal('show');

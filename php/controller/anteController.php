@@ -16,10 +16,28 @@ function gerarAnteEvento() {
                 <th>$dt_inicio $hr_inicio</th>
                 <td>$titulo</td>
                 <td>$responsavel</td>
-                <td style=\"text-align: center;\">
+                <td style=\"text-align: center;\">";
+        if(eventoComVideo($id)){
+            $listaAnteEvento .= "
                     <button type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#assismodal\" data-id=\"$id\" id=\"getAssistir\">
                         ASSISTIR
                     </button>
+                ";
+        }elseif(!estarLogado()){
+            $listaAnteEvento .= "Vídeo Indisponível";
+        }
+        if(estarLogado()){
+            $listaAnteEvento .= "
+                    <a role=\"button\" class=\"btn btn-primary btn-sm\" href=\"?p=sv&id=$id\">
+                        SESSÃO
+                    </a>
+                    <button type=\"button\" name=\"$id\" class=\"btn btn-warning btn-sm arquivarButton\" data-toggle=\"modal\" data-target=\"#arquivarModal\">
+                        ARQUIVAR
+                    </button>
+                    ";
+        }
+        
+        $listaAnteEvento .= "
                 </td>
             </tr>";
     }
@@ -27,4 +45,18 @@ function gerarAnteEvento() {
     $pdo = null;
 
     return $listaAnteEvento;
+}
+
+function eventoComVideo($id){
+    $pdo = conectar();
+    $query = selectEventoVideo();
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(1, $id);
+    $stmt->execute();
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    if($row == ''){
+        return false;
+    }else{
+        return true;
+    }
 }

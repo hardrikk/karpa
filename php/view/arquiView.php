@@ -3,10 +3,14 @@ verificarAcesso();
 include 'php/controller/arquiController.php';
 
 $listaArquiEvento = gerarArquiEvento();
+
+$mensagem = isset($_GET['m']) ? $_GET['m'] : '';
+$mensagem = gerarMensagem($mensagem);
 ?>
 <div class="title-pag container-fluid">
     <h2>EVENTOS ARQUIVADOS</h2>
 </div>
+<?php echo $mensagem; ?>
 <div class="datatables">
     <div class="table-responsive">
         <table id="tablepag" class="table table-striped table-bordered">

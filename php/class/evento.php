@@ -57,7 +57,7 @@ class evento {
         $this->setDesc_publi($obpost->desc_publico);
         $this->setTvibge(isset ($obpost->tvibge)?$obpost->tvibge : '');
         $this->setWebcast(isset ($obpost->webcast)?$obpost->webcast : '');
-        $this->setWebexterno(isset ($obpost->webexterno)?$obpost->webexterno : '');
+        $this->setWebexterno(isset ($obpost->webexterna)?$obpost->webexterna : 'http://viz-wcs.voxeldigital.com.br/?CodTransmissao=');
 
     }
     
