@@ -247,3 +247,10 @@ if ($ref == 'p=atv') {
         </div>
     </form>
 </div>
+<div id="sessaomodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>

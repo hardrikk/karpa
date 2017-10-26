@@ -394,3 +394,34 @@ $(document).ready(function () {
 
     });
 });
+
+$(document).ready(function () {
+
+    $(document).on('click', '#getSessao', function (e) {
+
+        e.preventDefault();
+
+        var uid = $(this).data('id'); // get id of clicked row
+
+        $('.modal-content').html(''); // leave this div blank
+        //$('#modal-loader').show();      // load ajax loader on button click
+
+        $.ajax({
+            url: 'php/view/comentModalView.php',
+            type: 'POST',
+            data: 'id=' + uid,
+            dataType: 'html'
+        })
+                .done(function (data) {
+                    console.log(data);
+                    $('.modal-content').html(''); // blank before load.
+                    $('.modal-content').html(data); // load here
+                    //   $('#modal-loader').hide(); // hide loader  
+                })
+                .fail(function () {
+                    $('.modal-content').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
+                    //   $('#modal-loader').hide();
+                });
+
+    });
+});

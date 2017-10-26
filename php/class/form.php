@@ -43,7 +43,17 @@ class form {
     
     public $usuario = "<input type=\"text\" class=\"form-control\" id=\"usuario\" name=\"usuario\" placeholder=\"Usuário\" maxlength=\"15\" required ";
     public $senha = "<input type=\"password\" class=\"form-control\" id=\"senha\" name=\"senha\" placeholder=\"Senha\" maxlength=\"100\" required ";
+    
+    public $tituloSessao = "<input type=\"text\" class=\"form-control\" id=\"titulo\" name=\"titulo\" placeholder=\"Título da sessão\" maxlength=\"100\" required ";
+    public $palestrante = "<input type=\"text\" class=\"form-control\" id=\"palestrante\" name=\"palestrante\" placeholder=\"Nome do palestrante\" maxlength=\"50\" required ";
+    public $orgao = "<input type=\"text\" class=\"form-control\" id=\"orgao\" name=\"orgao\" placeholder=\"Órgão do palestrante\" maxlength=\"50\" required ";
+    public $desc_sessao = "<textarea name=\"desc_evento\" id=\"desc_evento\" class=\"form-control col-sm-12\" placeholder=\"Descrição do evento\" maxlength=\"800\" ";
+    public $data = "<input name=\"data\" id=\"data\" type=\"text\" class=\"form-control\" placeholder=\"dd/mm/aaaa\"  required ";
+    public $hrinicioSessao = "<input name=\"hrinicio\" id=\"hrinicioS\" data-format=\"hh:mm\" type=\"text\" class=\"form-control modalhr\" placeholder=\"hh:mm\"  required ";
+    public $hrfinalSessao = "<input name=\"hrfinal\" id=\"hrfinalS\" data-format=\"hh:mm\" type=\"text\" class=\"form-control modalhr\" placeholder=\"hh:mm\" required ";
+    public $observacaoSessao = "<textarea name=\"observacao\" id=\"observacao\" class=\"form-control col-sm-12\" maxlength=\"200\" placeholder=\"Observação sobre as ferramentas\" ";
 
+    
     public function formAgendar() {
         $this->titulo .= "/>";
         $this->uorg .= form::gerarUorg();
