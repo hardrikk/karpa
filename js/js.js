@@ -407,7 +407,7 @@ $(document).ready(function () {
         //$('#modal-loader').show();      // load ajax loader on button click
 
         $.ajax({
-            url: 'php/view/comentModalView.php',
+            url: 'php/view/sessaoModalView.php',
             type: 'POST',
             data: 'id=' + uid,
             dataType: 'html'

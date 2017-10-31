@@ -47,11 +47,11 @@ class form {
     public $tituloSessao = "<input type=\"text\" class=\"form-control\" id=\"titulo\" name=\"titulo\" placeholder=\"Título da sessão\" maxlength=\"100\" required ";
     public $palestrante = "<input type=\"text\" class=\"form-control\" id=\"palestrante\" name=\"palestrante\" placeholder=\"Nome do palestrante\" maxlength=\"50\" required ";
     public $orgao = "<input type=\"text\" class=\"form-control\" id=\"orgao\" name=\"orgao\" placeholder=\"Órgão do palestrante\" maxlength=\"50\" required ";
-    public $desc_sessao = "<textarea name=\"desc_evento\" id=\"desc_evento\" class=\"form-control col-sm-12\" placeholder=\"Descrição do evento\" maxlength=\"800\" ";
+    public $desc_sessao = "<textarea name=\"desc_sessao\" id=\"desc_sessao\" class=\"form-control col-sm-12\" placeholder=\"Descrição da sessão\" maxlength=\"800\" ";
     public $data = "<input name=\"data\" id=\"data\" type=\"text\" class=\"form-control\" placeholder=\"dd/mm/aaaa\"  required ";
     public $hrinicioSessao = "<input name=\"hrinicio\" id=\"hrinicioS\" data-format=\"hh:mm\" type=\"text\" class=\"form-control modalhr\" placeholder=\"hh:mm\"  required ";
     public $hrfinalSessao = "<input name=\"hrfinal\" id=\"hrfinalS\" data-format=\"hh:mm\" type=\"text\" class=\"form-control modalhr\" placeholder=\"hh:mm\" required ";
-    public $observacaoSessao = "<textarea name=\"observacao\" id=\"observacao\" class=\"form-control col-sm-12\" maxlength=\"200\" placeholder=\"Observação sobre as ferramentas\" ";
+    public $observacaoSessao = "<textarea name=\"observacao\" id=\"observacao\" class=\"form-control col-sm-12\" maxlength=\"200\" placeholder=\"Observação sobre a sessão\" ";
 
     
     public function formAgendar() {
@@ -184,7 +184,23 @@ class form {
         $this->webcast .= " disabled " . form::check($webcast);
         $this->webexterna .= "value=\"$web_externa\" disabled />";
     }
+    
+    public function formAgendarSessao($id) {
+        $evento = evento::gerarEventoID($id);
+        extract($evento);
 
+        $dt_inicio = convertData($dt_inicio);
+
+        $this->tituloSessao .= " value=\"$titulo\" />";
+        $this->palestrante .= " />";
+        $this->orgao .= " />";
+        $this->desc_sessao .= " ></textarea>";
+        $this->data .= " value=\"$dt_inicio\" />";
+        $this->hrinicioSessao .= " value=\"$hr_inicio\" />";
+        $this->hrfinalSessao .= " />";
+        $this->observacaoSessao .= "></textarea>";
+    }
+    
     public function formLogin(){
         $this->usuario .= "/>";
         $this->senha .= "/>";
@@ -276,7 +292,7 @@ class form {
     }
 
     static function btnEnviar() {
-        echo "<input class=\"btn btn-primary center-block\" type=\"submit\" value=\"Enviar\" id=\"enviar\" name=\"enviar\"/>";
+        echo "<input class=\"btn btn-primary center-block loader\" type=\"submit\" value=\"Enviar\" id=\"enviar\" name=\"enviar\"/>";
     }
 
     static function btnSalvar() {
