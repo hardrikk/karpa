@@ -103,7 +103,7 @@ function selectEventoVideo(){
     return "SELECT DISTINCT e.id 
                 FROM sitvi_evento e 
                 JOIN sitvi_sessao se ON e.id = se.fkevento
-                JOIN sitvi_video s ON se.id = s.fksessao 
+                JOIN sitvi_video s ON s.id = se.fkvideo 
                 WHERE e.aprovado=1 and e.status=0 and e.ativo=1 and (e.dt_final < CURRENT_DATE) and e.id = ? ";
 }
 
@@ -113,4 +113,18 @@ function updateArquiEvento(){
 
 function selectSessaoEvento(){
     return "SELECT id, titulo, data, hr_inicio, hr_final, palestrante FROM sitvi_sessao WHERE fkevento = ?";
+}
+
+function insertSessao(){
+    return "INSERT INTO sitvi_sessao (fkevento, titulo, descricao, data, hr_inicio, hr_final, palestrante, orgao, observacao) "
+    . "VALUES (?,?,?,?,?,?,?,?,?)";
+}
+
+function insertVideo(){
+    return "INSERT INTO sitvi_video (nome, caminho) "
+    . "VALUES (?,?)";
+}
+
+function updateFkVideo(){
+    return "UPDATE sitvi_sessao SET fkvideo = ? WHERE id = ?";
 }

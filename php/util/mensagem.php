@@ -4,7 +4,7 @@ function gerarMensagem($mensagem) {
     $ref = ref();
 
     $men = "";
-    if ($ref == 'p=av' || $ref == 'p=agv' || $ref == 'p=ev' || $ref == 'p=avv' || $ref == 'p=pv' || $ref == 'p=lv' || $ref == 'p=atv') {
+    if ($ref == 'p=av' || $ref == 'p=agv' || $ref == 'p=ev' || $ref == 'p=avv' || $ref == 'p=pv' || $ref == 'p=lv' || $ref == 'p=atv' || $ref == 'p=sv') {
         if (trim($mensagem)) {
             $men = "<div class=\"container\" align=\"center\">
                         <div style=\"display:inline-block;\" class=\"alert ";
@@ -48,7 +48,17 @@ function gerarMensagem($mensagem) {
                     $men .= "alert-danger\" role=\"alert\">
                                 <button type=\"button\" class=\"close\" data-dismiss=\"alert\"><span aria-hidden=\"true\">&times;</span></button>
                                 <strong>Acesso Negado!</strong> Usuário ou senha não conferem.";
-                break;
+                    break;
+                case 'v':
+                    $men .= "alert-danger\" role=\"alert\">
+                                <button type=\"button\" class=\"close\" data-dismiss=\"alert\"><span aria-hidden=\"true\">&times;</span></button>
+                                <strong>Formato Inválido!</strong> Formato de vídeo inválido.";
+                    break;
+                case 'ss':
+                    $men .= "alert-success\" role=\"alert\">
+                                <button type=\"button\" class=\"close\" data-dismiss=\"alert\"><span aria-hidden=\"true\">&times;</span></button>
+                                <strong>Sucesso!</strong> Sessão cadastrada com sucesso.";
+                    break;
             }
             $men .= "</div>
                 </div>";

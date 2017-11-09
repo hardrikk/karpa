@@ -1,12 +1,15 @@
 <?php
 $ref = ref();
-if ($ref == 'p=atv') {
+if ($ref == 'p=atv' || $ref == 'p=sv') {
     extract($_GET);
     $form = new form();
     $form->formSessao($id);
 
     include 'php/controller/sessaoController.php';
     $listaSessaoEvento = gerarListaSessaoEvento($id);
+    
+    $mensagem = isset($_GET['m']) ? $_GET['m'] : '';
+    $mensagem = gerarMensagem($mensagem);
 } else {
     header("Location: ./?p=404");
     exit;
@@ -14,6 +17,41 @@ if ($ref == 'p=atv') {
 ?>
 <div class="container">
     <form>
+        <fieldset>
+            <legend>SESSÃO</legend>
+            <?php echo $mensagem; ?>
+            <div class="form-group row">
+                <button type="button" class="btn btn-primary center-block" data-toggle="modal" data-target="#sessaomodal" data-id="<?php echo $id; ?>" id="getSessao">Criar Sessão</button>
+            </div>
+            <div class="form-group row">
+                <div class="container">
+                    <div class="datatables">
+                        <div class="table-responsive">
+                            <table id="tablepag" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>DATA</th>
+                                        <th>TÍTULO</th>
+                                        <th>PALESTRANTE</th>
+                                        <th style="text-align: center;">AÇÕES</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php echo $listaSessaoEvento; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-group row">
+            <div class="col-sm-12" align="center">
+                <?php
+                form::btnVoltar();
+                ?>
+            </div>
+        </div>
         <fieldset class="form-group">
             <legend>EVENTO</legend>
             <div class="form-group row">
@@ -211,40 +249,7 @@ if ($ref == 'p=atv') {
                 </div>
             </div>
         </fieldset>
-        <fieldset>
-            <legend>SESSÃO</legend>
-            <div class="form-group row">
-                <button type="button" class="btn btn-primary center-block" data-toggle="modal" data-target="#sessaomodal" data-id="<?php echo $id; ?>" id="getSessao">Criar Sessão</button>
-            </div>
-            <div class="form-group row">
-                <div class="container">
-                    <div class="datatables">
-                        <div class="table-responsive">
-                            <table id="tablepag" class="table table-striped table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>DATA</th>
-                                        <th>TÍTULO</th>
-                                        <th>PALESTRANTE</th>
-                                        <th style="text-align: center;">AÇÕES</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php echo $listaSessaoEvento; ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </fieldset>
-        <div class="form-group row">
-            <div class="col-sm-12" align="center">
-                <?php
-                form::btnVoltar();
-                ?>
-            </div>
-        </div>
+        
     </form>
 </div>
 <div id="sessaomodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">

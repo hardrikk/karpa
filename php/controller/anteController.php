@@ -19,7 +19,7 @@ function gerarAnteEvento() {
                 <td style=\"text-align: center;\">";
         if(eventoComVideo($id)){
             $listaAnteEvento .= "
-                    <button type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#assismodal\" data-id=\"$id\" id=\"getAssistir\">
+                    <button type=\"button\" class=\"btn btn-info btn-sm\" data-toggle=\"modal\" data-target=\"#assismodal\" data-id=\"$id\" id=\"getAssistir\">
                         ASSISTIR
                     </button>
                 ";

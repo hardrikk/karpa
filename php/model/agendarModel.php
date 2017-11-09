@@ -19,8 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
         $tem = $stmt->rowCount();
     } while ($tem == 1);
 
-    $zero = 0;
-    $um = 1;
     $query = insertEvento();
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":titulo", $evento->getTitulo(), PDO::PARAM_STR);

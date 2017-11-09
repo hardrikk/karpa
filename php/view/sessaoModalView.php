@@ -15,7 +15,7 @@ if (isset($_REQUEST['id'])) {
     <h3 class="modal-title">SESSÃO</h3>
 </div>
 <div class="modal-body">
-    <form method="POST" id="sessaoForm" action="?p=sm&id=<?php echo $id; ?>" data-toggle="validator">
+    <form method="POST" id="sessaoForm" action="?p=sm&id=<?php echo $id; ?>" data-toggle="validator" enctype="multipart/form-data">
         <fieldset class="form-group">
             <div class="form-group row">
             <label for="titulo" class="col-sm-3 col-form-label lable-agendar">* Titulo:</label>
@@ -76,7 +76,6 @@ if (isset($_REQUEST['id'])) {
             <label for="video" class="col-sm-3 col-form-label lable-agendar">Vídeo:</label>
                 <div class="col-sm-7">
                     <input type="file" name="video" id="video" placeholder="Vídeo da sessão" class="form-group" />
-                    <div class="help-block with-errors"></div>
                 </div>
             </div>
         </fieldset>
