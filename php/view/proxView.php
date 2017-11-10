@@ -35,3 +35,8 @@ $mensagem = gerarMensagem($mensagem);
         </div>
     </div>
 </div>
+<!--<div align="center" class="embed-responsive embed-responsive-16by9">
+    <video autoplay loop class="embed-responsive-item">
+        <source src="//waphdes04v/SAM/SITVI/doc/sitvi/1/1_4.mp4" type="video/mp4">
+    </video>
+</div>-->

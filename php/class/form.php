@@ -292,7 +292,7 @@ class form {
     }
 
     static function btnEnviar() {
-        echo "<input class=\"btn btn-primary center-block loader\" type=\"submit\" value=\"Enviar\" id=\"enviar\" name=\"enviar\"/>";
+        echo "<input class=\"btn btn-primary center-block loader\" type=\"submit\" value=\"Enviar\" id=\"enviar\" name=\"enviar\" />";
     }
 
     static function btnSalvar() {

@@ -43,7 +43,7 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
                     mkdir($diretorio);
                 }
                 
-                $nome = $id . "_" . $idSessao . $extension;
+                $nome = $id . "_" . $idSessao . "." . $extension;
                 $caminho = $diretorio . "/" . $nome;
                 
                 if(move_uploaded_file($tmp, $caminho)){

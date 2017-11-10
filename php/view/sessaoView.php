@@ -1,6 +1,6 @@
 <?php
 $ref = ref();
-if ($ref == 'p=atv' || $ref == 'p=sv') {
+if ($ref == 'p=atv' || $ref == 'p=scv') {
     extract($_GET);
     $form = new form();
     $form->formSessao($id);
@@ -20,8 +20,8 @@ if ($ref == 'p=atv' || $ref == 'p=sv') {
         <fieldset>
             <legend>SESSÃO</legend>
             <?php echo $mensagem; ?>
-            <div class="form-group row">
-                <button type="button" class="btn btn-primary center-block" data-toggle="modal" data-target="#sessaomodal" data-id="<?php echo $id; ?>" id="getSessao">Criar Sessão</button>
+            <div class="form-group row text-center">
+                <a role="button" class="btn btn-primary" href="?p=scv&id=<?php echo $id; ?>">Criar Sessão</a>
             </div>
             <div class="form-group row">
                 <div class="container">

@@ -61,6 +61,9 @@ function endereco($pg){
         case 'sv':
             return 'view/sessaoView';
             break;
+        case 'scv':
+            return 'view/sessaoCadView';
+            break;
         case 'sm':
             return 'model/sessaoModel';
             break;

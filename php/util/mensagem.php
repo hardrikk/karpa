@@ -4,7 +4,7 @@ function gerarMensagem($mensagem) {
     $ref = ref();
 
     $men = "";
-    if ($ref == 'p=av' || $ref == 'p=agv' || $ref == 'p=ev' || $ref == 'p=avv' || $ref == 'p=pv' || $ref == 'p=lv' || $ref == 'p=atv' || $ref == 'p=sv') {
+    if ($ref == 'p=av' || $ref == 'p=agv' || $ref == 'p=ev' || $ref == 'p=avv' || $ref == 'p=pv' || $ref == 'p=lv' || $ref == 'p=atv' || $ref == 'p=scv') {
         if (trim($mensagem)) {
             $men = "<div class=\"container\" align=\"center\">
                         <div style=\"display:inline-block;\" class=\"alert ";

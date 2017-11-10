@@ -135,6 +135,10 @@ $(document).ready(function () {
 function loader(){
     $('#loader').modal('show');
 }
+function loadermodal(){
+    $('#sessaomodal').modal('hide');
+    $('#loader').modal('show');
+}
 function validarAvaliar() {
     var tvibge = $('#tvibge').prop("checked");
     var webcast = $('#webcast').prop("checked");
