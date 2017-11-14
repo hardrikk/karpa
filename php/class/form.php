@@ -292,7 +292,7 @@ class form {
     }
 
     static function btnEnviar() {
-        echo "<input class=\"btn btn-primary center-block loader\" type=\"submit\" value=\"Enviar\" id=\"enviar\" name=\"enviar\" />";
+        echo "<input class=\"btn btn-primary loader\" type=\"submit\" value=\"Enviar\" id=\"enviar\" name=\"enviar\" />";
     }
 
     static function btnSalvar() {
@@ -300,6 +300,9 @@ class form {
     }
     static function btnVoltarAguar() {
         echo "<a href=\"?p=agv\" class=\"btn btn-default\" role=\"button\">Voltar</a>";
+    }
+    static function btnVoltarAnte() {
+        echo "<a href=\"?p=atv\" class=\"btn btn-default\" role=\"button\">Voltar</a>";
     }
     static function btnVoltar() {
         echo "<input type=\"button\" class=\"btn btn-default\" value=\"Voltar\" onClick=\"history.go(-1)\"/>";

@@ -76,8 +76,8 @@ if ($ref == 'p=sv') {
             </div>
         </fieldset>
         <div class="form-group row">
-            <div class="col-sm-12">
-                <?php form::btnEnviar(); ?>
+            <div class="col-sm-12" align="center">
+                <?php form::btnVoltar(); ?> <?php form::btnEnviar(); ?>
             </div>
         </div>
     </form>

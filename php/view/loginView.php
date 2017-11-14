@@ -27,7 +27,7 @@ $mensagem = gerarMensagem($mensagem);
                     <div class="help-block with-errors"></div>
                 </div>
             </div>
-            <div class="form-group"> 
+            <div class="form-group" align="center"> 
                 <?php form::btnEnviar(); ?>
             </div>
         </fieldset>

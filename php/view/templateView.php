@@ -8,6 +8,7 @@ $navAdmin = navAdmin();
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
@@ -33,6 +34,7 @@ $navAdmin = navAdmin();
         <script src="js/validator.min.js" type="text/javascript"></script>
         <script src="js/jquery.mask.js" type="text/javascript"></script>
         <script src="js/js.js" type="text/javascript"></script>
+        <script src="js/html5lightbox/html5lightbox.js" type="text/javascript"></script>
         <script defer="defer" src="//barra.brasil.gov.br/barra.js" type="text/javascript"></script>
         <title><?php title($pg); ?></title>
     </head>

@@ -48,7 +48,7 @@ if ($ref == 'p=atv' || $ref == 'p=scv') {
         <div class="form-group row">
             <div class="col-sm-12" align="center">
                 <?php
-                form::btnVoltar();
+                form::btnVoltarAnte();
                 ?>
             </div>
         </div>

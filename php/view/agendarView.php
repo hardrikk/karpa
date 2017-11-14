@@ -175,7 +175,7 @@ $form->formAgendar();
             </div>
         </fieldset>
         <div class="form-group row">
-            <div class="col-sm-12">
+            <div class="col-sm-12" align="center">
                 <?php form::btnEnviar(); ?>
             </div>
         </div>
