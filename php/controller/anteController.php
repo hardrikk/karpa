@@ -19,9 +19,9 @@ function gerarAnteEvento() {
                 <td style=\"text-align: center;\">";
         if(eventoComVideo($id)){
             $listaAnteEvento .= "
-                    <a role=\"button\" class=\"btn btn-info btn-sm html5lightbox\" href=\"". virtual ."\">
+                    <button type=\"button\" class=\"btn btn-info btn-sm\" data-toggle=\"modal\" data-target=\"#assismodal\" data-id=\"$id\" id=\"getAssistir\">
                         ASSISTIR
-                    </a>
+                    </button>
                 ";
         }elseif(!estarLogado()){
             $listaAnteEvento .= "Vídeo Indisponível";
@@ -47,19 +47,6 @@ function gerarAnteEvento() {
     return $listaAnteEvento;
 }
 
-function eventoComVideo($id){
-    $pdo = conectar();
-    $query = selectEventoVideo();
-    $stmt = $pdo->prepare($query);
-    $stmt->bindParam(1, $id);
-    $stmt->execute();
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    if($row == ''){
-        return false;
-    }else{
-        return true;
-    }
-}
 function eventoComVideo($id){
     $pdo = conectar();
     $query = selectEventoVideo();
