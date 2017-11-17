@@ -35,4 +35,3 @@ $mensagem = gerarMensagem($mensagem);
         </div>
     </div>
 </div>
-<a href="/virtual_videos/1/1_4.mp4" class="html5lightbox">Teste</a>

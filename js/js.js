@@ -125,17 +125,31 @@ $(document).ready(function () {
         $('#loader').modal('show');
     });
 
-    $(".arquivarButton").click(function (){
+    $(".arquivarButton").click(function () {
         var id = $(this).prop("name");
-        var action = "?p=aqm&id="+id;
+        var action = "?p=aqm&id=" + id;
         $("#arquivarForm").prop("action", action);
     });
-    
+
+    $('#assismodal').on('hide.bs.modal', function () {
+        $("#video").prop("src", "");
+    });
 });
-function loader(){
+//setInterval(function () {
+//    if ($("#assismodal").prop("class") === "modal fade") {
+//        $("#video").prop("src", "");
+//    }
+//}, 1800);
+function mudarsrc(te) {
+    var src = $(te).val();
+    $("#video").prop("src", src);
+    $("#divvideo").prop("style", "");
+}
+
+function loader() {
     $('#loader').modal('show');
 }
-function loadermodal(){
+function loadermodal() {
     $('#sessaomodal').modal('hide');
     $('#loader').modal('show');
 }
@@ -152,10 +166,10 @@ function validarAvaliar() {
             $('.alert').html("Informe o endereço do webcast.");
             $('.servicoerror').attr("style", "");
             return false;
-        }else{
+        } else {
             $('#loader').modal('show');
         }
-    }else{
+    } else {
         $('#loader').modal('show');
     }
 }
@@ -169,7 +183,7 @@ function validarEditarAdm() {
         $('.alert').html("<ul class=\"list-unstyled\"><li>Selecionar ao menos um público alvo</li></ul>");
         $('.checkerros').attr("style", "");
         return false;
-    }else{
+    } else {
         $('#loader').modal('show');
     }
 
@@ -185,10 +199,10 @@ function validarEditarAdm() {
             $('.alert').html("Informe o endereço do webcast.");
             $('.servicoerror').attr("style", "");
             return false;
-        }else{
+        } else {
             $('#loader').modal('show');
         }
-    }else{
+    } else {
         $('#loader').modal('show');
     }
 }
@@ -202,7 +216,7 @@ function validar() {
         $('.alert').html("<ul class=\"list-unstyled\"><li>Selecionar ao menos um público alvo</li></ul>");
         $('.checkerros').attr("style", "");
         return false;
-    }else{
+    } else {
         $('#loader').modal('show');
     }
 }
@@ -421,6 +435,38 @@ $(document).ready(function () {
                     $('.modal-content').html(''); // blank before load.
                     $('.modal-content').html(data); // load here
                     //   $('#modal-loader').hide(); // hide loader  
+                })
+                .fail(function () {
+                    $('.modal-content').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
+                    //   $('#modal-loader').hide();
+                });
+
+    });
+});
+
+$(document).ready(function () {
+
+    $(document).on('click', '#getAssistir', function (e) {
+
+        e.preventDefault();
+
+        var uid = $(this).data('id'); // get id of clicked row
+
+        $('.modal-content').html(''); // leave this div blank
+        //$('#modal-loader').show();      // load ajax loader on button click
+
+        $.ajax({
+            url: 'php/view/assistirModalView.php',
+            type: 'POST',
+            data: 'id=' + uid,
+            dataType: 'html'
+        })
+                .done(function (data) {
+                    console.log(data);
+                    $('.modal-content').html(''); // blank before load.
+                    $('.modal-content').html(data); // load here
+                    //   $('#modal-loader').hide(); // hide loader  
+
                 })
                 .fail(function () {
                     $('.modal-content').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');

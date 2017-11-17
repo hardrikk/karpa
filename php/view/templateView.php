@@ -33,8 +33,8 @@ $navAdmin = navAdmin();
         <script src="js/validator.js" type="text/javascript"></script>
         <script src="js/validator.min.js" type="text/javascript"></script>
         <script src="js/jquery.mask.js" type="text/javascript"></script>
-        <script src="js/js.js" type="text/javascript"></script>
         <script src="js/html5lightbox/html5lightbox.js" type="text/javascript"></script>
+        <script src="js/js.js" type="text/javascript"></script>
         <script defer="defer" src="//barra.brasil.gov.br/barra.js" type="text/javascript"></script>
         <title><?php title($pg); ?></title>
     </head>

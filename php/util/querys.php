@@ -128,3 +128,7 @@ function insertVideo(){
 function updateFkVideo(){
     return "UPDATE sitvi_sessao SET fkvideo = ? WHERE id = ?";
 }
+
+function selectModalAssistir(){
+    return "SELECT s.*, v.nome FROM sitvi_sessao s JOIN sitvi_video v ON s.fkvideo = v.id WHERE s.fkevento = ? ";
+}
